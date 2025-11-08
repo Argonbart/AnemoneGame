@@ -16,7 +16,7 @@ var timeOutOfBorders := 0.0
 func _ready():	
 	velocity = Vector2(randf_range(-maxVelocity, maxVelocity),
 						randf_range(-maxVelocity, maxVelocity))
-	
+
 func _process(delta):
 	velocity += acceleration.limit_length(maxAcceleration * delta)
 	velocity = velocity.limit_length(maxVelocity)

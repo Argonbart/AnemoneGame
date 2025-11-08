@@ -8,6 +8,10 @@
 
 [node name="Flock" parent="." instance=ExtResource("1_8o88j")]
 boidScene = ExtResource("2_3utj5")
+numberOfBoids = 40
 predator = NodePath("../Shark")
 
 [node name="Shark" parent="." instance=ExtResource("3_lhv63")]
+position = Vector2(80, 566)
+acceleration = 4000.0
+maxSpeed = 300.0
