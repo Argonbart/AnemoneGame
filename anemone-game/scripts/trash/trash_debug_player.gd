@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 300
 var mouse_position = Vector2(0, 0)
 
+var trash_collected_scn = preload("res://scenes/trash/trash_collected.tscn")
 
 func _physics_process(_delta):
 	perform_movement()
@@ -32,3 +33,9 @@ func perform_movement():
 
 func collect_trash():
 	print("TRASH COLLECTED")
+	var trash = trash_collected_scn.instantiate()
+	$TrashPositon.add_child(trash)
+
+
+func drop_all_trash():
+	pass
