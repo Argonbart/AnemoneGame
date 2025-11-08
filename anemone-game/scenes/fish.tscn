@@ -1,13 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://cibqn7p21bya2"]
+[gd_scene load_steps=4 format=3 uid="uid://cibqn7p21bya2"]
 
 [ext_resource type="Script" uid="uid://d1blqqxoh8bqv" path="res://scripts/fish.gd" id="1_n6yr6"]
+[ext_resource type="PackedScene" uid="uid://b8kv0npx7hj7a" path="res://scenes/fish_link.tscn" id="2_nub35"]
+[ext_resource type="Script" uid="uid://c5qrruo4krhpo" path="res://scripts/fish_link.gd" id="3_pgks6"]
 
 [node name="Fish" type="Node2D" node_paths=PackedStringArray("fish_outline")]
 script = ExtResource("1_n6yr6")
 fish_outline = NodePath("FishOutline")
 
 [node name="FishOutline" type="Line2D" parent="."]
-z_index = 1
-points = PackedVector2Array(472.48682, 211.42273, 459.11026, 146.18597, 403.34732, 112.66159, 345.67087, 126.42136, 305.37387, 159.23909, 282.91833, 202.25114, 272.71643, 247.18037, 347.74622, 245.79115, 354.46594, 219.17278, 370.165, 197.39369, 389.6645, 186.2178, 411.32565, 191.99924, 413.48093, 204.10419, 400.01794, 211.3363)
+points = PackedVector2Array(91.86527, -25.577864, 97.67033, -27.089705, 107.84939, -62.497684, 88.7328, -59.189106, 82.761475, -57.318817, 77.66035, -53.694824, 73.928764, -48.671867, 71.932, -42.74163, 71.86551, -36.484604, 73.735794, -30.513271, 77.35979, -25.412148, 82.382744, -21.680565, 88.31298, -19.6838, 94.57001, -19.617306, 114.65862, -23.081516, 114.77053, -63.25022, 93.0248, -65.56105, 74.62516, -66.30332, 68.81381, -63.983185, 64.00385, -59.9808, 60.66612, -54.687946, 59.127323, -48.622726, 59.5381, -42.378845, 61.85824, -36.567497, 65.86063, -31.757538, 71.15348, -28.419804)
+closed = true
 width = 2.0
 default_color = Color(1, 0, 0, 1)
+
+[node name="FishLink" type="Node2D" parent="." instance=ExtResource("2_nub35")]
+position = Vector2(79.04387, -46.797554)
+script = ExtResource("3_pgks6")
+radius = 20.0
+
+[node name="@Node2D@24210" type="Node2D" parent="." instance=ExtResource("2_nub35")]
+position = Vector2(92.44504, -45.569458)
+script = ExtResource("3_pgks6")
+radius = 20.0
+
+[node name="@Node2D@24211" type="Node2D" parent="." instance=ExtResource("2_nub35")]
+position = Vector2(106.22043, -45.169964)
+script = ExtResource("3_pgks6")
+radius = 20.0
+
+[node name="@Node2D@24212" type="Node2D" parent="." instance=ExtResource("2_nub35")]
+position = Vector2(111.254005, -42.7896)
+script = ExtResource("3_pgks6")
+radius = 20.0
+
+[node name="@Node2D@24213" type="Node2D" parent="." instance=ExtResource("2_nub35")]
+position = Vector2(91.651405, -39.403206)
+script = ExtResource("3_pgks6")
+radius = 20.0
