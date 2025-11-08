@@ -23,7 +23,8 @@ func _physics_process(_delta):
 
 
 func perform_movement(delta):
-	mouse_position = get_viewport().get_mouse_position()
+	mouse_position = get_global_mouse_position()
+	print(mouse_position)
 	var target = (mouse_position - global_position).normalized()
 	
 	if global_position.distance_to(mouse_position) > 1:
