@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://1ffdnj1b078w"]
 
-[ext_resource type="Texture2D" uid="uid://dkoukjr3l5gjk" path="res://assets/trash/trash_bottle.png" id="1_kupft"]
+[ext_resource type="Texture2D" uid="uid://ca8l20jvrjyss" path="res://assets/Trash_Bottle_Blue.png" id="1_kupft"]
 
 [node name="TrashCollected" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_kupft")
