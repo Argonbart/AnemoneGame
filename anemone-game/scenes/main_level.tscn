@@ -113,10 +113,11 @@ position = Vector2(-727, -4439)
 [node name="Flock" parent="Gameplay" instance=ExtResource("7_u2c82")]
 boidScene = ExtResource("8_k5pu3")
 visualRange = 150.0
-predatorMinDist = 1800.0
+predatorMinDist = 2000.0
 cohesionWeight = 3.0
-separationWeight = 150.0
+separationWeight = 200.0
 alignmentWeight = 10.0
+predatorWeight = 1250.0
 
 [node name="CutsceneManager" parent="." node_paths=PackedStringArray("gameplay_node") instance=ExtResource("6_bq26l")]
 gameplay_node = NodePath("../Gameplay")

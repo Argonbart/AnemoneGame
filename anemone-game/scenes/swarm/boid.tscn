@@ -5,6 +5,8 @@
 
 [node name="Boid" type="Node2D"]
 script = ExtResource("1_3wvxu")
+maxVelocity = 585.0
+maxAcceleration = 1650.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.606, 0.606)

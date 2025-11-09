@@ -4,11 +4,17 @@ extends Node2D
 # General configuration
 @export var boidScene: PackedScene
 @export var numberOfBoids: int = 140
+@export var maxNeighborsColor: int = 20
 @export var visualRange: float = 130
 @export var separationDistance: float = 80
+
 @export var predator: Shark
 @export var predatorMinDist: float = 300
-@export var maxNeighborsColor: int = 20
+
+@export var player: Player
+@export var playerMinDistance: float = 2000
+@export var playerCohesionWeight: float = 300
+@export var playerAlignWeight: float = 25
 
 # Rule weights
 @export var cohesionWeight: float = 0.3
@@ -44,9 +50,36 @@ func _process(delta):
 	_separation()
 	_alignment()
 	
+	if player:
+		_join_player()
+		_align_player()
+	
 	_borders(delta)
+	
 	if predator:
 		_escapePredator()
+
+func _join_player():
+	var player_position = player.fish.get_links().front().global_position
+	for i in range(_boids.size()):
+		var dist = _boids[i].get_position().distance_to(player_position)
+		if (dist < playerMinDistance):
+			var direction = player_position - _boids[i].get_postition()
+			_boids[i].acceleration += direction * playerCohesionWeight
+			pass
+	pass
+	
+
+func _align_player():
+	var player_position = player.fish.get_links().front().global_position
+	for i in range(_boids.size()):
+		var dist = _boids[i].get_position().distance_to(player_position)
+		if (dist < playerMinDistance):
+			var direction = player_position - _boids[i].get_postition()
+			var acc = _boids[i].velocity + player.fish.fish_velocity / 2.
+			_boids[i].acceleration += acc * playerAlignWeight
+			pass
+	pass
 
 func _detectNeighbors():
 	for i in range(_boids.size()):
