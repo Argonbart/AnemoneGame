@@ -12,10 +12,11 @@ trash_stack = NodePath("TrashStack")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(550, 0)
 zoom = Vector2(0.5, 0.5)
-limit_left = -250
-limit_top = -100
-limit_right = 1900
-limit_bottom = 1200
+limit_left = -5000
+limit_top = -5000
+limit_right = 5000
+limit_bottom = 5000
+limit_smoothed = true
 
 [node name="Fish" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_gmlin")]
 link_distance = 50.0

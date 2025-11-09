@@ -24,6 +24,7 @@ SignalBus="*res://scripts/game_state/signal_bus.gd"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+window/stretch/aspect="expand"
 
 [input]
 

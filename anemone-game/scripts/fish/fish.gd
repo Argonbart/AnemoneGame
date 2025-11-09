@@ -53,12 +53,12 @@ func _ready() -> void:
 		link.update.connect(redraw)
 	
 	# Add RemoteTransform2D node to head
-	if camera:
+	if not Engine.is_editor_hint() and camera:
 		var head: Link = link_container.get_children().back()
 		remote_transform_2d = RemoteTransform2D.new()
 		remote_transform_2d.remote_path = camera.get_path()
 		head.add_child(remote_transform_2d)
-		remote_transform_2d.owner = head
+		remote_transform_2d.owner = self
 
 
 func _physics_process(delta: float) -> void:
@@ -66,6 +66,11 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	var head: Link = link_container.get_children().back()
+	
+	# Respect borders
+	if abs(head.global_position.x) > 4500 or abs(head.global_position.y) > 4500:
+		target_position = Vector2.ZERO
+	
 	# Smooth steering with limited angular speed
 	var to_target = target_position - head.global_position
 	if to_target.length_squared() < 0.0001:
@@ -79,10 +84,12 @@ func _physics_process(delta: float) -> void:
 	var clamped_turn = clamp(angle_diff, -max_turn, max_turn)
 	var new_angle = current_angle + clamped_turn
 	
+	# Move head
 	fish_velocity = Vector2.RIGHT.rotated(new_angle) * speed
 	head.look_at(head.global_position + fish_velocity)
 	head.global_position += fish_velocity * delta
 	
+	# Move body
 	var body: Array[Node] = link_container.get_children()
 	body.reverse()
 	body = body.slice(1)

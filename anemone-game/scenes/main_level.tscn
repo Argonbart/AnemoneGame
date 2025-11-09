@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2mv62pchwbh1"]
+[gd_scene load_steps=12 format=3 uid="uid://d2mv62pchwbh1"]
 
 [ext_resource type="PackedScene" uid="uid://tj5ds5rxwv2e" path="res://scenes/ui/DebugHUD.tscn" id="1_6we3w"]
 [ext_resource type="PackedScene" uid="uid://cy3x4gwb6yjx4" path="res://scenes/player/player.tscn" id="1_v3uhd"]
@@ -6,22 +6,24 @@
 [ext_resource type="Script" uid="uid://oelyqo3rf5e" path="res://scripts/shark/shark_manager.gd" id="4_qmak7"]
 
 [sub_resource type="Gradient" id="Gradient_6we3w"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.24313726, 0.23137255, 0.39607844, 1)
+colors = PackedColorArray(0.15992716, 0.20040402, 0.56190765, 1, 0.24313726, 0.23137255, 0.39607844, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qmak7"]
 gradient = SubResource("Gradient_6we3w")
-width = 3000
-height = 2000
+width = 10000
+height = 10000
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3uhd"]
-size = Vector2(2823.5, 47)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmak7"]
+size = Vector2(10000, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufxs0"]
-size = Vector2(2822, 48)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ra5a"]
+size = Vector2(10000, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6we3w"]
-size = Vector2(1983.5, 47.000244)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq26l"]
+size = Vector2(10, 10000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2c82"]
+size = Vector2(10, 10000)
 
 [sub_resource type="Curve2D" id="Curve2D_qmak7"]
 _data = {
@@ -32,48 +34,29 @@ point_count = 4
 [node name="MainLevel" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(1422, 919)
 texture = SubResource("GradientTexture2D_qmak7")
 
 [node name="Player" parent="." instance=ExtResource("1_v3uhd")]
 position = Vector2(1037, 769)
 
-[node name="Borders" type="Node2D" parent="."]
-
-[node name="BorderTop" type="StaticBody2D" parent="Borders"]
-position = Vector2(227, 2)
+[node name="Borders" type="StaticBody2D" parent="."]
 collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BorderTop"]
-position = Vector2(1195.25, -33)
-shape = SubResource("RectangleShape2D_v3uhd")
+[node name="BorderTop" type="CollisionShape2D" parent="Borders"]
+position = Vector2(0, -5000)
+shape = SubResource("RectangleShape2D_qmak7")
 
-[node name="BorderBottom" type="StaticBody2D" parent="Borders"]
-position = Vector2(1011, 1906)
-collision_layer = 16
+[node name="BorderBottom" type="CollisionShape2D" parent="Borders"]
+position = Vector2(0, 5000)
+shape = SubResource("RectangleShape2D_8ra5a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BorderBottom"]
-position = Vector2(411, 0)
-shape = SubResource("RectangleShape2D_ufxs0")
+[node name="BorderLeft" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-5000, 0)
+shape = SubResource("RectangleShape2D_bq26l")
 
-[node name="BorderLeft" type="StaticBody2D" parent="Borders"]
-position = Vector2(-13, 739)
-rotation = 1.5707964
-collision_layer = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BorderLeft"]
-position = Vector2(197.5, 7.6293945e-06)
-shape = SubResource("RectangleShape2D_6we3w")
-
-[node name="BorderRight" type="StaticBody2D" parent="Borders"]
-position = Vector2(2857, 937)
-rotation = -3.1415925
-collision_layer = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BorderRight"]
-position = Vector2(-0.5, 0.25)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_6we3w")
+[node name="BorderRight" type="CollisionShape2D" parent="Borders"]
+position = Vector2(5000, 0)
+shape = SubResource("RectangleShape2D_u2c82")
 
 [node name="TrashSpawner" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(216, 228)
