@@ -74,10 +74,11 @@ func check_phase_progression():
 
 func begin_phase(phase_id: int):
 	current_game_phase = phase_id
+	print('next phase is ' + str(phase_id))
 	if (phase_id == GameConfig.phase_to_reach_for_win):
 		win_game()
 	else:
-		print('next phase is ' + str(phase_id))
+		pass
 
 
 func win_game():
