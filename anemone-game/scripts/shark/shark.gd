@@ -3,7 +3,7 @@ extends Node2D
 
 @export var acceleration: float
 @export var maxSpeed: float
-@export var killDistance: float = 1400
+@export var killDistance: float = 100
 
 @export var next_position_timer: Timer
 
@@ -11,7 +11,7 @@ extends Node2D
 
 var target: Player
 var on_the_hunt: bool = true
-
+var just_entered: bool = true
 
 func _process(_delta):
 	# DIRTY check for collision with player
@@ -20,7 +20,9 @@ func _process(_delta):
 		# FIXME is global_position the right one here?
 		var target_position = target.fish.get_links().front().global_position
 		var distance_to_target = target_position.distance_to(head_pos)
-		if distance_to_target < killDistance:
+		if distance_to_target < killDistance and just_entered:
+			just_entered = false
+			get_tree().create_timer(5).timeout.connect(flip_just_entered)
 			if randf() < 0.5:
 				AudioManager.play("sfx_bite_1")
 			else:
@@ -40,6 +42,8 @@ func _process(_delta):
 		next_position_timer.wait_time = 0
 		next_position_timer.start()
 
+func flip_just_entered():
+	just_entered = true
 
 func target_point(point: Vector2):
 	fish.target_position = point

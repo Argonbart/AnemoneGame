@@ -5,7 +5,6 @@
 
 [node name="Shark" type="Node2D" node_paths=PackedStringArray("next_position_timer", "fish")]
 script = ExtResource("1_8l5qy")
-killDistance = 1500.0
 next_position_timer = NodePath("NextPositionTimer")
 fish = NodePath("Fish")
 
