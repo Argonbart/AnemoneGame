@@ -31,8 +31,16 @@ const LINK = preload("uid://bbhu0e3rkslb7")
 		redraw()
 @export var camera: Node2D
 
+@export_category("Movement Parameters")
+@export var speed: float = 600.0
+@export var max_turn_deg_per_sec: float = 180.0
+
 # Variables
 var remote_transform_2d: RemoteTransform2D
+
+# Movement variables
+var target_position: Vector2 = Vector2.ZERO
+var velocity: Vector2 = Vector2.RIGHT * speed
 
 
 # Called when the node enters the scene tree for the first time.
@@ -51,10 +59,38 @@ func _ready() -> void:
 		remote_transform_2d.owner = head
 
 
-func get_links() -> Array[Node]:
-	var links = link_container.get_children()
-	links.reverse()
-	return links
+func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
+	var head: Link = link_container.get_children().back()
+	# Smooth steering with limited angular speed
+	var to_target = target_position - head.global_position
+	if to_target.length_squared() < 0.0001:
+		head.global_position += velocity * delta
+		return
+	
+	var desired_angle = to_target.angle()
+	var current_angle = velocity.angle()
+	var angle_diff = wrapf(desired_angle - current_angle, -PI, PI)
+	var max_turn = deg_to_rad(max_turn_deg_per_sec) * delta
+	var clamped_turn = clamp(angle_diff, -max_turn, max_turn)
+	var new_angle = current_angle + clamped_turn
+	
+	velocity = Vector2.RIGHT.rotated(new_angle) * speed
+	head.look_at(head.global_position + velocity)
+	head.global_position += velocity * delta
+	
+	var body: Array[Node] = link_container.get_children()
+	body.reverse()
+	body = body.slice(1)
+	for link: Link in body:
+		if link.global_position.distance_to(link.next.global_position) > link_distance:
+			var reversed_direction = link.global_position - link.next.global_position
+			var new_pos = link.next.global_position + reversed_direction.normalized() * link_distance
+			link.global_position = new_pos
+	
+	redraw()
 
 
 func _add_link():
