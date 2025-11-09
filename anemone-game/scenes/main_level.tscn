@@ -87,8 +87,9 @@ offset_top = 51.0
 offset_right = -1521.0
 offset_bottom = -849.0
 
-[node name="SharkManager" type="Node2D" parent="." node_paths=PackedStringArray("outside_path", "peace_timer", "hunt_timer")]
+[node name="SharkManager" type="Node2D" parent="." node_paths=PackedStringArray("player", "outside_path", "peace_timer", "hunt_timer")]
 script = ExtResource("4_qmak7")
+player = NodePath("../Player")
 outside_path = NodePath("OutsidePath")
 peace_timer = NodePath("PeaceTimer")
 hunt_timer = NodePath("HuntTimer")

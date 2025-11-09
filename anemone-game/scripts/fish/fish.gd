@@ -198,13 +198,18 @@ func _visualize_curve(curve: Curve2D):
 		return
 	# Smooth the curve with more points
 	var smooth_points: Array[Vector2]
-	var resolution = 16  # higher -> smoother
+	var resolution = 256  # higher -> smoother
 	var length = curve.get_baked_length()
 	for i in range(resolution + 1):
 		smooth_points.append(curve.sample_baked(float(i) / resolution * length) * global_transform)
-	collision_polygon_2d.polygon = smooth_points
 	polygon_2d.polygon = smooth_points
 	line_2d.points = smooth_points
+	
+	var collision_points: Array[Vector2]
+	var collision_resolution = 8  # higher -> smoother
+	for i in range(collision_resolution + 1):
+		collision_points.append(curve.sample_baked(float(i) / collision_resolution * length) * global_transform)
+	collision_polygon_2d.polygon = collision_points
 
 
 func _add_bezier_point_to_curve(curve: Curve2D, link: Link, point: Vector2) -> Vector2:

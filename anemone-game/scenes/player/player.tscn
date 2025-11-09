@@ -19,6 +19,7 @@ limit_bottom = 1200
 
 [node name="Fish" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_gmlin")]
 link_distance = 50.0
+roundness_factor = 0.15
 camera = NodePath("../Camera2D")
 
 [node name="TrashStack" type="Node2D" parent="."]
