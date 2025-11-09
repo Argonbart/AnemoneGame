@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvfpmph0ov8pq"]
+
+[ext_resource type="Texture2D" uid="uid://0hik28w8xd85" path="res://assets/icon.svg" id="1_ujh5s"]
+[ext_resource type="PackedScene" uid="uid://bq0yvub2l8hq6" path="res://scenes/fish/fish.tscn" id="2_qtb3d"]
+
+[node name="Player2" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(550, 0)
+zoom = Vector2(0.5, 0.5)
+limit_left = -5000
+limit_top = -5000
+limit_right = 5000
+limit_bottom = 5000
+limit_smoothed = true
+
+[node name="TrashStack" type="Node2D" parent="."]
+position = Vector2(-80, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="TrashStack"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ujh5s")
+
+[node name="Fish" parent="." instance=ExtResource("2_qtb3d")]

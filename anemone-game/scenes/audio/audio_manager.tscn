@@ -1,0 +1,141 @@
+[gd_scene load_steps=29 format=3 uid="uid://c5oi2rxws37jl"]
+
+[ext_resource type="Script" uid="uid://bcmtfhhj2rbqk" path="res://scripts/audio/audio_manager.gd" id="1_s2nsv"]
+[ext_resource type="Script" uid="uid://c056sb2g6qwd6" path="res://scripts/audio/sound.gd" id="2_ey2e8"]
+[ext_resource type="AudioStream" uid="uid://dbquyv0jm84f6" path="res://assets/audio/music/happy.mp3" id="3_xm044"]
+[ext_resource type="AudioStream" uid="uid://ia1jggk38vw" path="res://assets/audio/music/middle.mp3" id="4_mh8mo"]
+[ext_resource type="AudioStream" uid="uid://d3m0k8rewq4rt" path="res://assets/audio/music/sad.mp3" id="5_7bp0g"]
+[ext_resource type="AudioStream" uid="uid://c25s6ivdnbj3t" path="res://assets/audio/sfx/sfx_bite_1.mp3" id="6_kpp2c"]
+[ext_resource type="AudioStream" uid="uid://i5c6iaaarxta" path="res://assets/audio/sfx/sfx_bite_2.mp3" id="7_k26wb"]
+[ext_resource type="AudioStream" uid="uid://cygvdomo5e5ve" path="res://assets/audio/sfx/sfx_move_through_anemones.wav" id="8_0qag5"]
+[ext_resource type="AudioStream" uid="uid://ds0yjuos0gqf0" path="res://assets/audio/sfx/sfx_select_plastic.wav" id="9_fjnme"]
+[ext_resource type="AudioStream" uid="uid://d31nday31m1c" path="res://assets/audio/sfx/sfx_sharkalert.wav" id="10_28alx"]
+[ext_resource type="AudioStream" uid="uid://cgnewywy75y0w" path="res://assets/audio/sfx/sfx_sparkles.mp3" id="11_emnvs"]
+[ext_resource type="AudioStream" uid="uid://cpid0jktq2jfj" path="res://assets/audio/sfx/sfx_suck_in.wav" id="12_ypw6b"]
+[ext_resource type="AudioStream" uid="uid://dy10jb5g7wqhb" path="res://assets/audio/sfx/sfx_suck_in_1.mp3" id="13_dlb7n"]
+[ext_resource type="AudioStream" uid="uid://iwka6yl60wea" path="res://assets/audio/sfx/sfx_suck_in_2.mp3" id="14_g78vt"]
+[ext_resource type="AudioStream" uid="uid://c6cfiefd2rqtn" path="res://assets/audio/sfx/sfx_turn_microplastic.wav" id="15_gkbs7"]
+
+[sub_resource type="Resource" id="Resource_c4cst"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("3_xm044")
+name = "happy"
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_1mp4c"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("4_mh8mo")
+name = "middle"
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_wfmnx"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("5_7bp0g")
+name = "sad"
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_n8661"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("6_kpp2c")
+name = "sfx_bite_1"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_onqdg"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("7_k26wb")
+name = "sfx_bite_2"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_15ev1"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("8_0qag5")
+name = "sfx_move_through_anemones"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_v6axm"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("9_fjnme")
+name = "sfx_select_plastic"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_hkpre"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("10_28alx")
+name = "sfx_sharkalert"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_mjcpo"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("11_emnvs")
+name = "sfx_sparkles"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_qnat3"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("12_ypw6b")
+name = "sfx_suck_in"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_nqbmb"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("13_dlb7n")
+name = "sfx_suck_in_1"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_m0mjg"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("14_g78vt")
+name = "sfx_suck_in_2"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_y2hjj"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("15_gkbs7")
+name = "sfx_turn_microplastic"
+type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("caption", "canvas_layer")]
+script = ExtResource("1_s2nsv")
+sounds = Array[ExtResource("2_ey2e8")]([SubResource("Resource_c4cst"), SubResource("Resource_1mp4c"), SubResource("Resource_wfmnx"), SubResource("Resource_n8661"), SubResource("Resource_onqdg"), SubResource("Resource_15ev1"), SubResource("Resource_v6axm"), SubResource("Resource_hkpre"), SubResource("Resource_mjcpo"), SubResource("Resource_qnat3"), SubResource("Resource_nqbmb"), SubResource("Resource_m0mjg"), SubResource("Resource_y2hjj")])
+caption = NodePath("CanvasLayer/Control/MarginContainer/Caption")
+canvas_layer = NodePath("CanvasLayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="Caption" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
