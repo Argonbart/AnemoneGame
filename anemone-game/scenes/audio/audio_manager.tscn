@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://c5oi2rxws37jl"]
+[gd_scene load_steps=85 format=3 uid="uid://c5oi2rxws37jl"]
 
 [ext_resource type="Script" uid="uid://bcmtfhhj2rbqk" path="res://scripts/audio/audio_manager.gd" id="1_s2nsv"]
 [ext_resource type="Script" uid="uid://c056sb2g6qwd6" path="res://scripts/audio/sound.gd" id="2_ey2e8"]
@@ -44,33 +44,31 @@
 [ext_resource type="AudioStream" uid="uid://ciwllc6k74a0i" path="res://assets/audio/dialogue/vocal_7_001.mp3" id="37_73oiy"]
 [ext_resource type="AudioStream" uid="uid://c8dscpckwvyts" path="res://assets/audio/dialogue/vocal_7_002.mp3" id="38_du45i"]
 [ext_resource type="AudioStream" uid="uid://ddllmb2tr023h" path="res://assets/audio/dialogue/vocal_7_003.mp3" id="39_w5it1"]
+[ext_resource type="Texture2D" uid="uid://bmrv5olxghmuc" path="res://assets/dialogue/dialogue_bella_boxfish.png" id="44_ichmb"]
+[ext_resource type="Texture2D" uid="uid://bnrywxpt4yc78" path="res://assets/dialogue/dialogue_anemonique_shocked.png" id="45_3niio"]
 
 [sub_resource type="Resource" id="Resource_c4cst"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("3_xm044")
 name = "happy"
-character = null
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [sub_resource type="Resource" id="Resource_1mp4c"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("4_mh8mo")
 name = "middle"
-character = null
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [sub_resource type="Resource" id="Resource_wfmnx"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("5_7bp0g")
 name = "sad"
-character = null
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [sub_resource type="Resource" id="Resource_n8661"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("6_kpp2c")
 name = "sfx_bite_1"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -78,7 +76,6 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("7_k26wb")
 name = "sfx_bite_2"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -86,7 +83,6 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("8_0qag5")
 name = "sfx_move_through_anemones"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -94,7 +90,6 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("9_fjnme")
 name = "sfx_select_plastic"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -102,7 +97,6 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("10_28alx")
 name = "sfx_sharkalert"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -110,7 +104,6 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("11_emnvs")
 name = "sfx_sparkles"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -118,7 +111,6 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("12_ypw6b")
 name = "sfx_suck_in"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -126,7 +118,6 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("13_dlb7n")
 name = "sfx_suck_in_1"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -134,7 +125,6 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("14_g78vt")
 name = "sfx_suck_in_2"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -142,7 +132,6 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("15_gkbs7")
 name = "sfx_turn_microplastic"
-character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -360,6 +349,8 @@ script = ExtResource("1_s2nsv")
 sounds = Array[ExtResource("2_ey2e8")]([SubResource("Resource_c4cst"), SubResource("Resource_1mp4c"), SubResource("Resource_wfmnx"), SubResource("Resource_n8661"), SubResource("Resource_onqdg"), SubResource("Resource_15ev1"), SubResource("Resource_v6axm"), SubResource("Resource_hkpre"), SubResource("Resource_mjcpo"), SubResource("Resource_qnat3"), SubResource("Resource_nqbmb"), SubResource("Resource_m0mjg"), SubResource("Resource_y2hjj"), SubResource("Resource_3k8vr"), SubResource("Resource_lkhw8"), SubResource("Resource_78ebp"), SubResource("Resource_spmko"), SubResource("Resource_s0wpm"), SubResource("Resource_ichmb"), SubResource("Resource_pokcu"), SubResource("Resource_hj0ue"), SubResource("Resource_o7trt"), SubResource("Resource_gybb0"), SubResource("Resource_xpaiq"), SubResource("Resource_gre3y"), SubResource("Resource_ma554"), SubResource("Resource_dsph8"), SubResource("Resource_hx8jr"), SubResource("Resource_d1xy6"), SubResource("Resource_njjry"), SubResource("Resource_ure5i"), SubResource("Resource_56aht"), SubResource("Resource_j0yq0"), SubResource("Resource_4jp42"), SubResource("Resource_ocgme"), SubResource("Resource_s5hm0"), SubResource("Resource_bgfbe"), SubResource("Resource_vwfoo")])
 char_dict = Dictionary[String, Texture2D]({
 "ane": ExtResource("16_mh8mo"),
+"ane_shocked": ExtResource("45_3niio"),
+"bel": ExtResource("44_ichmb"),
 "fio": ExtResource("24_onqdg"),
 "may": ExtResource("23_n8661"),
 "sam": ExtResource("22_wfmnx")
