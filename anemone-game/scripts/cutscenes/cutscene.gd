@@ -13,7 +13,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	remaining_time -= delta
-	print('remaining_time = ' + str(remaining_time))
 	if remaining_time <= 0.0:
 		SignalBus.end_cutscene.emit()
 		print('END CUTSCENE')

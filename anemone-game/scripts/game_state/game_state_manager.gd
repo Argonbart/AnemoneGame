@@ -25,12 +25,15 @@ func is_player_carrying_trash() -> bool:
 
 func _on_trash_collected(_trash: Trash):
 	trash_carried += 1
+	print('trash carried = ' + str(trash_carried))
 
 
 func _on_trash_dropped():
-	total_trash_in_game -= trash_carried
-	trash_carried = 0
-	check_phase_progression()
+	if (trash_carried > 0):
+		print('dropped. trash carried = ' + str(trash_carried))
+		total_trash_in_game -= trash_carried
+		trash_carried = 0
+		check_phase_progression()
 
 
 func _on_anemone_entered():
@@ -51,7 +54,8 @@ func _on_trash_decayed():
 	current_micro_plastic_pollution += 1
 	SignalBus.microplastics_pollution_changed.emit()
 	if current_micro_plastic_pollution >= max_micro_plastic_pollution:
-		print('YOU LOST')
+		#print('YOU LOST')
+		pass
 
 
 func _on_trash_spawned(has_replaced_decaying_trash: bool):
@@ -71,7 +75,7 @@ func check_phase_progression():
 		if total_trash_in_game < GameConfig.phase_3_max_trash:
 			begin_phase(3)
 	elif current_game_phase == 3:
-		if total_trash_in_game < 0:
+		if total_trash_in_game <= 0:
 			begin_phase(4)
 
 

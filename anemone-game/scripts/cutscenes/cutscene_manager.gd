@@ -41,8 +41,9 @@ func on_begin_cutscene(scene_id: int):
 		active_scene = lose_shark_scene.instantiate()
 	elif scene_id == 6:
 		active_scene = lose_trash_scene.instantiate()
-	
+		
 	add_child(active_scene)
+	await get_tree().create_timer(1.0).timeout
 	gameplay_node.process_mode = Node.PROCESS_MODE_DISABLED
 
 
