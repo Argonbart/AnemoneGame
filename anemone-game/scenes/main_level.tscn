@@ -7,7 +7,6 @@
 [ext_resource type="Shader" uid="uid://c5x3skmrvee7" path="res://assets/shaders/post_processing.gdshader" id="4_iqu8w"]
 [ext_resource type="Script" uid="uid://oelyqo3rf5e" path="res://scripts/shark/shark_manager.gd" id="4_qmak7"]
 [ext_resource type="PackedScene" uid="uid://beb3yvk4or5nw" path="res://scenes/trash/trash_drop_zone.tscn" id="5_8ra5a"]
-[ext_resource type="PackedScene" uid="uid://bj6awkohhvssi" path="res://scenes/cutscenes/cutscene_manager.tscn" id="6_bq26l"]
 [ext_resource type="PackedScene" uid="uid://d2uuhl127kkgq" path="res://scenes/swarm/flock.tscn" id="7_u2c82"]
 [ext_resource type="PackedScene" uid="uid://ceq03o3kh2yd5" path="res://scenes/swarm/boid.tscn" id="8_k5pu3"]
 
@@ -138,8 +137,17 @@ separationWeight = 200.0
 alignmentWeight = 10.0
 predatorWeight = 1250.0
 
-[node name="CutsceneManager" parent="." node_paths=PackedStringArray("gameplay_node") instance=ExtResource("6_bq26l")]
-gameplay_node = NodePath("../Gameplay")
+[node name="CutsceneManager" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
 
 [connection signal="timeout" from="Gameplay/SharkManager/PeaceTimer" to="Gameplay/SharkManager" method="_on_peace_timer_timeout"]
 [connection signal="timeout" from="Gameplay/SharkManager/HuntTimer" to="Gameplay/SharkManager" method="_on_hunt_timer_timeout"]

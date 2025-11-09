@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://c5oi2rxws37jl"]
+[gd_scene load_steps=84 format=3 uid="uid://c5oi2rxws37jl"]
 
 [ext_resource type="Script" uid="uid://bcmtfhhj2rbqk" path="res://scripts/audio/audio_manager.gd" id="1_s2nsv"]
 [ext_resource type="Script" uid="uid://c056sb2g6qwd6" path="res://scripts/audio/sound.gd" id="2_ey2e8"]
@@ -233,12 +233,6 @@ name = "vocal_3_006"
 type = 2
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
-[sub_resource type="Resource" id="Resource_ma554"]
-script = ExtResource("2_ey2e8")
-audio = ExtResource("28_xuhrm")
-name = "vocal_4_001"
-metadata/_custom_type_script = "uid://c056sb2g6qwd6"
-
 [sub_resource type="Resource" id="Resource_dsph8"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("28_xuhrm")
@@ -347,9 +341,9 @@ text = "[tornado radius=10.0 freq=1.0 connected=1]Yippieh![/tornado]"
 type = 2
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("caption", "canvas_layer")]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("banner", "caption", "canvas_layer")]
 script = ExtResource("1_s2nsv")
-sounds = Array[ExtResource("2_ey2e8")]([SubResource("Resource_c4cst"), SubResource("Resource_1mp4c"), SubResource("Resource_wfmnx"), SubResource("Resource_n8661"), SubResource("Resource_onqdg"), SubResource("Resource_15ev1"), SubResource("Resource_v6axm"), SubResource("Resource_hkpre"), SubResource("Resource_mjcpo"), SubResource("Resource_qnat3"), SubResource("Resource_nqbmb"), SubResource("Resource_m0mjg"), SubResource("Resource_y2hjj"), SubResource("Resource_3k8vr"), SubResource("Resource_lkhw8"), SubResource("Resource_78ebp"), SubResource("Resource_spmko"), SubResource("Resource_s0wpm"), SubResource("Resource_ichmb"), SubResource("Resource_pokcu"), SubResource("Resource_hj0ue"), SubResource("Resource_o7trt"), SubResource("Resource_gybb0"), SubResource("Resource_xpaiq"), SubResource("Resource_gre3y"), SubResource("Resource_ma554"), SubResource("Resource_dsph8"), SubResource("Resource_hx8jr"), SubResource("Resource_d1xy6"), SubResource("Resource_njjry"), SubResource("Resource_ure5i"), SubResource("Resource_56aht"), SubResource("Resource_j0yq0"), SubResource("Resource_4jp42"), SubResource("Resource_ocgme"), SubResource("Resource_s5hm0"), SubResource("Resource_bgfbe"), SubResource("Resource_vwfoo")])
+sounds = Array[ExtResource("2_ey2e8")]([SubResource("Resource_c4cst"), SubResource("Resource_1mp4c"), SubResource("Resource_wfmnx"), SubResource("Resource_n8661"), SubResource("Resource_onqdg"), SubResource("Resource_15ev1"), SubResource("Resource_v6axm"), SubResource("Resource_hkpre"), SubResource("Resource_mjcpo"), SubResource("Resource_qnat3"), SubResource("Resource_nqbmb"), SubResource("Resource_m0mjg"), SubResource("Resource_y2hjj"), SubResource("Resource_3k8vr"), SubResource("Resource_lkhw8"), SubResource("Resource_78ebp"), SubResource("Resource_spmko"), SubResource("Resource_s0wpm"), SubResource("Resource_ichmb"), SubResource("Resource_pokcu"), SubResource("Resource_hj0ue"), SubResource("Resource_o7trt"), SubResource("Resource_gybb0"), SubResource("Resource_xpaiq"), SubResource("Resource_gre3y"), SubResource("Resource_dsph8"), SubResource("Resource_hx8jr"), SubResource("Resource_d1xy6"), SubResource("Resource_njjry"), SubResource("Resource_ure5i"), SubResource("Resource_56aht"), SubResource("Resource_j0yq0"), SubResource("Resource_4jp42"), SubResource("Resource_ocgme"), SubResource("Resource_s5hm0"), SubResource("Resource_bgfbe"), SubResource("Resource_vwfoo")])
 char_dict = Dictionary[String, Texture2D]({
 "ane": ExtResource("16_mh8mo"),
 "ane_shocked": ExtResource("45_3niio"),
@@ -358,6 +352,7 @@ char_dict = Dictionary[String, Texture2D]({
 "may": ExtResource("23_n8661"),
 "sam": ExtResource("22_wfmnx")
 })
+banner = NodePath("CanvasLayer/Control/Banner")
 caption = NodePath("CanvasLayer/Control/MarginContainer/Caption")
 canvas_layer = NodePath("CanvasLayer")
 
@@ -372,7 +367,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="Banner" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = -234.0
 offset_top = -310.0
@@ -388,7 +383,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 536.0
 offset_top = 793.0
-offset_right = -191.0
+offset_right = -523.0
 offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 2

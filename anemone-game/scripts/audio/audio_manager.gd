@@ -5,6 +5,7 @@ signal dialogue_finished(last_dialogue)
 
 @export var sounds: Array[Sound] = []
 @export var char_dict: Dictionary[String, Texture2D]
+@export var banner: TextureRect
 @export var caption: RichTextLabel
 @export var canvas_layer: CanvasLayer
 
@@ -16,25 +17,36 @@ var dialogue_volume: float = .5
 var dialogue_queue: Array[String]
 
 
+
+func _ready() -> void:
+	pass
+	#canvas_layer.hide()
+
+
 func _process(_delta: float) -> void:
 	#if Input.is_action_just_pressed("skip"):
 		#skip_current_cutscene()
 	pass
 
 
-func play(s_name: String) -> AudioStreamPlayer:
-	# Get sound by name
+func get_sound_by_name(s_name: String) -> Sound:
 	var s: Sound = sounds.filter(func(sound) -> bool: return sound.name == s_name).front()
 	if not s:
 		printerr("Error: No sound with name \"" + s_name + "\" found")
-		return
+		return null
+	return s
+
+
+func play(s_name: String) -> AudioStreamPlayer:
+	# Get sound by name
+	var s: Sound = get_sound_by_name(s_name)
 	
 	# Create audio stream player
 	var player: AudioStreamPlayer = AudioStreamPlayer.new()
 	# Put caption if available
-	if not s.text.is_empty():
-		caption.text = "[outline_size=16]" + "[outline_color=#000000]" + "[center]" + s.text + "[/center]" + "[/outline_color]" + "[/outline_size]"
-		player.finished.connect((func(): caption.text = ""))
+	#if not s.text.is_empty():
+		#caption.text = "[outline_size=16]" + "[outline_color=#000000]" + "[center]" + s.text + "[/center]" + "[/outline_color]" + "[/outline_size]"
+		#player.finished.connect((func(): caption.text = ""))
 	# Apply sound settings
 	player.stream = s.audio
 	player.volume_db = linear_to_db(s.volume)
@@ -66,12 +78,33 @@ func play(s_name: String) -> AudioStreamPlayer:
 	return player
 
 
-func play_dialogue(dialogue_names: Array[String]) -> void:
+func play_dialogue(dialogue_name: String) -> AudioStreamPlayer:
 	 # Cancel all playing dialogues
 	stop_all_of_type(Sound.AudioType.DIALOGUE)
+	
+	var s = get_sound_by_name(dialogue_name)
+	if not s.character.is_empty():
+		canvas_layer.show()
+		banner.texture = char_dict.get(s.character)
+		caption.text = s.text
+	var player: AudioStreamPlayer = self.play(dialogue_name)
+	player.finished.connect(canvas_layer.hide)
+	return player
+
+
+func play_dialogue_sequence(dialogue_names: Array[String]) -> void:
+	 # Cancel all playing dialogues
+	stop_all_of_type(Sound.AudioType.DIALOGUE)
+	
 	if dialogue_names.size() < 1:
 		return
+	
 	for dialogue_name: String in dialogue_names:
+		var s = get_sound_by_name(dialogue_name)
+		if not s.character.is_empty():
+			canvas_layer.show()
+			banner.texture = char_dict.get(s.character)
+			caption.text = s.text
 		await self.play(dialogue_name).finished
 	dialogue_finished.emit(dialogue_names[dialogue_names.size() - 1])
 

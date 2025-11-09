@@ -1,36 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf5lkgljyc4sm"]
+[gd_scene load_steps=9 format=3 uid="uid://bf5lkgljyc4sm"]
 
 [ext_resource type="Script" uid="uid://kyy3bexhxcqh" path="res://scripts/cutscenes/cutscene.gd" id="1_2p14x"]
+[ext_resource type="Script" uid="uid://bajeal1kqnqh5" path="res://scripts/cutscenes/script_4.gd" id="2_nuo5f"]
+[ext_resource type="Texture2D" uid="uid://dr6cxhycxsvb" path="res://assets/cutscenes/riff_back.png" id="3_gij5r"]
+[ext_resource type="Texture2D" uid="uid://bji1ot13ts4sl" path="res://assets/cutscenes/character_anemonique.png" id="4_3ru1t"]
+[ext_resource type="Script" uid="uid://bhwfjr17t8pok" path="res://scenes/cutscenes/character_shaker.gd" id="5_mx5g3"]
+[ext_resource type="Texture2D" uid="uid://ble8sbo22vpo7" path="res://assets/cutscenes/character_mayor_mackerel.png" id="6_gij5r"]
+[ext_resource type="Texture2D" uid="uid://ch8wtchc2e1ft" path="res://assets/cutscenes/riff_front.png" id="7_74e0f"]
+[ext_resource type="Texture2D" uid="uid://cskala62alxlk" path="res://assets/prices/04_price_medal.png" id="8_3ru1t"]
 
 [node name="CutsceneWin" type="Node2D"]
 script = ExtResource("1_2p14x")
 cutscene_id = 4
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Script4" type="Node2D" parent="." node_paths=PackedStringArray("ane", "other", "price")]
+script = ExtResource("2_nuo5f")
+ane = NodePath("../Ane")
+other = NodePath("../Other")
+price = NodePath("../Price")
 
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RiffBack" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_gij5r")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -193.0
-offset_right = 500.0
-offset_bottom = 193.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 128
-text = "CUTSCENE WIN"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Ane" type="Sprite2D" parent="."]
+position = Vector2(310, 464)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_3ru1t")
+script = ExtResource("5_mx5g3")
+
+[node name="Other" type="Sprite2D" parent="."]
+position = Vector2(1345, 663)
+scale = Vector2(0.80859375, 0.80859375)
+texture = ExtResource("6_gij5r")
+script = ExtResource("5_mx5g3")
+
+[node name="RiffFront" type="Sprite2D" parent="."]
+position = Vector2(960, 410)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_74e0f")
+
+[node name="Price" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(976.00006, 427)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("8_3ru1t")
