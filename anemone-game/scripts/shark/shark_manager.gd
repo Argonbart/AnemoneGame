@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 func _on_peace_timer_timeout() -> void:
 	print("Shark Attack incoming")
 	# TODO SOUNDEFFEKT sharkattack
+	AudioManager.play("sfx_sharkalert")
 	
 	# shark spawnen random on outside_path
 	var spawn_point = get_rand_point_on_outside_path()

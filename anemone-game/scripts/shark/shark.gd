@@ -21,6 +21,10 @@ func _process(_delta):
 		var target_position = target.fish.get_links().front().global_position
 		var distance_to_target = target_position.distance_to(head_pos)
 		if distance_to_target < killDistance:
+			if randf() < 0.5:
+				AudioManager.play("sfx_bite_1")
+			else:
+				AudioManager.play("sfx_bite_2")
 			print("YOU GOT EATEN BY SHARK")
 			SignalBus.shark_bit.emit()
 	

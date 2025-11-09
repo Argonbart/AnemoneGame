@@ -11,9 +11,6 @@ fish = NodePath("Fish")
 
 [node name="Fish" parent="." instance=ExtResource("3_likij")]
 collision_layer = 16
-show_link_outlines = true
-show_link_polygons = true
-show_shape_points = true
 link_distance = 81.0
 roundness_factor = 0.5
 max_turn_deg_per_sec = 85.0
