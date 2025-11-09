@@ -1,8 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3ex2uqt3fd28"]
+[gd_scene load_steps=16 format=3 uid="uid://b3ex2uqt3fd28"]
 
 [ext_resource type="Script" uid="uid://6igt488suhtb" path="res://scripts/trash/trash.gd" id="1_ymemc"]
+[ext_resource type="Texture2D" uid="uid://d2n7kl5g3pbhw" path="res://assets/trash/Trash_Bag_Blue.png" id="2_d40sb"]
 [ext_resource type="Texture2D" uid="uid://ca8l20jvrjyss" path="res://assets/Trash_Bottle_Blue.png" id="2_ymemc"]
+[ext_resource type="Texture2D" uid="uid://baumcxomr3u7k" path="res://assets/trash/Trash_Bag_Green.png" id="3_cbtqg"]
 [ext_resource type="Texture2D" uid="uid://cyktpyybst8xs" path="res://assets/trash/progress_bar.png" id="3_xxdwj"]
+[ext_resource type="Texture2D" uid="uid://gf7p77n2f3rb" path="res://assets/trash/Trash_Bag_Yellow.png" id="4_87l12"]
+[ext_resource type="Texture2D" uid="uid://ysebd5ootbw4" path="res://assets/trash/Trash_Bottle_Red.png" id="5_gmije"]
+[ext_resource type="Texture2D" uid="uid://bo7fyq3pdtexb" path="res://assets/trash/Trash_Cottonswabs.png" id="6_wnkja"]
+[ext_resource type="Texture2D" uid="uid://dxlx28blvcyam" path="res://assets/trash/Trash_Straw_Blue.png" id="7_ecmsw"]
+[ext_resource type="Texture2D" uid="uid://cvge0xrk1or0c" path="res://assets/trash/Trash_Straw_Green.png" id="8_vi2el"]
+[ext_resource type="Texture2D" uid="uid://cq1olhgdlk1hc" path="res://assets/trash/Trash_Straw_Purple.png" id="9_uut4q"]
+[ext_resource type="Texture2D" uid="uid://dx4o6o1ty6kib" path="res://assets/trash/Trash_Straw_Red.png" id="10_oet54"]
+[ext_resource type="Texture2D" uid="uid://7b5fku138jc0" path="res://assets/trash/Trash_Straw_Yellow.png" id="11_1yodc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxdwj"]
 radius = 120.0
@@ -18,6 +28,7 @@ sprite_2d = NodePath("Sprite2D")
 texture_progress_bar = NodePath("TextureProgressBar")
 particles = NodePath("CPUParticles2D")
 lifetime_on_spawn = 10.0
+trash_types = [ExtResource("2_d40sb"), ExtResource("3_cbtqg"), ExtResource("4_87l12"), ExtResource("5_gmije"), ExtResource("6_wnkja"), ExtResource("7_ecmsw"), ExtResource("8_vi2el"), ExtResource("9_uut4q"), ExtResource("10_oet54"), ExtResource("11_1yodc"), ExtResource("2_ymemc")]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 anchors_preset = 8

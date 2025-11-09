@@ -17,10 +17,12 @@ var current_lifetime: float
 var _collected: bool = false
 var _decayed: bool = false
 
+@export var trash_types: Array[Texture2D]
+
 
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
-	
+	$Sprite2D.texture = trash_types.pick_random()
 	full_lifetime = lifetime_on_spawn + randf_range(lifetime_random_range.x, lifetime_random_range.y)
 	current_lifetime = full_lifetime
 
