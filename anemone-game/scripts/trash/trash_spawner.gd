@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 
 
 func spawn_trash():
-	var rand_x = rng.randf_range(-GameConfig.map_size_x / 2.0, GameConfig.map_size_x / 2.0)
-	var rand_y = rng.randf_range(-GameConfig.map_size_y / 2.0, GameConfig.map_size_y / 2.0)
+	var rand_x = rng.randf_range(GameConfig.trash_spawn_limit_x_left, GameConfig.trash_spawn_limit_x_right)
+	var rand_y = rng.randf_range(GameConfig.trash_spawn_limit_y_top, GameConfig.trash_spawn_limit_y_bottom)
 	var spawn_position = Vector2(rand_x, rand_y)
 	print(str(rand_x) + ' ' + str(rand_y))
 	
