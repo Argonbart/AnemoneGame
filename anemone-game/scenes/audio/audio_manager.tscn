@@ -51,18 +51,21 @@
 script = ExtResource("2_ey2e8")
 audio = ExtResource("3_xm044")
 name = "happy"
+loop = true
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [sub_resource type="Resource" id="Resource_1mp4c"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("4_mh8mo")
 name = "middle"
+loop = true
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [sub_resource type="Resource" id="Resource_wfmnx"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("5_7bp0g")
 name = "sad"
+loop = true
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [sub_resource type="Resource" id="Resource_n8661"]
