@@ -8,11 +8,13 @@ func _ready() -> void:
 	SignalBus.protection_gained.connect(_on_protection_gained)
 	SignalBus.protection_lost.connect(_on_protection_lost)
 	SignalBus.update_total_trash_in_game.connect(_on_update_total_trash_in_game)
+	SignalBus.begin_phase.connect(_on_begin_phase)
 	
 	_on_trash_spawned(false)
 	_on_trash_collected(null)
 	_on_protection_lost()
 	_on_microplastics_pollution_changed()
+	_on_begin_phase(0)
 
 
 func _on_update_total_trash_in_game():
@@ -42,3 +44,7 @@ func _on_protection_gained():
 
 func _on_protection_lost():
 	$VBoxContainer/SafeFromSharkLabel.text = "Not Protected"
+
+
+func _on_begin_phase(phase_id: int):
+	$VBoxContainer/PhaseLabel.text = "phase: " + str(phase_id)

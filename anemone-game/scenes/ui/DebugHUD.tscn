@@ -31,3 +31,6 @@ text = "SafeFromSharkLabel"
 [node name="MicroplasticsPollutionLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "MicroPlasticMeter"
+
+[node name="PhaseLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
