@@ -11,7 +11,7 @@ var phase_1_max_trash := 12
 var phase_2_max_trash := 8
 var phase_3_max_trash := 4
 
-var trash_spawn_screen_marging := 3500.0
+var trash_spawn_screen_marging := 1500.0
 var trash_spawn_limit_x_left := -map_half_size_x + trash_spawn_screen_marging
 var trash_spawn_limit_x_right := map_half_size_x - trash_spawn_screen_marging
 var trash_spawn_limit_y_top := -map_half_size_y + trash_spawn_screen_marging
