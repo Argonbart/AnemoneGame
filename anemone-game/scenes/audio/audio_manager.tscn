@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c5oi2rxws37jl"]
+[gd_scene load_steps=83 format=3 uid="uid://c5oi2rxws37jl"]
 
 [ext_resource type="Script" uid="uid://bcmtfhhj2rbqk" path="res://scripts/audio/audio_manager.gd" id="1_s2nsv"]
 [ext_resource type="Script" uid="uid://c056sb2g6qwd6" path="res://scripts/audio/sound.gd" id="2_ey2e8"]
@@ -15,29 +15,62 @@
 [ext_resource type="AudioStream" uid="uid://dy10jb5g7wqhb" path="res://assets/audio/sfx/sfx_suck_in_1.mp3" id="13_dlb7n"]
 [ext_resource type="AudioStream" uid="uid://iwka6yl60wea" path="res://assets/audio/sfx/sfx_suck_in_2.mp3" id="14_g78vt"]
 [ext_resource type="AudioStream" uid="uid://c6cfiefd2rqtn" path="res://assets/audio/sfx/sfx_turn_microplastic.wav" id="15_gkbs7"]
+[ext_resource type="AudioStream" uid="uid://cuxjcbduf33a4" path="res://assets/audio/dialogue/vocal_1_001.mp3" id="16_dlb7n"]
+[ext_resource type="Texture2D" uid="uid://gdhvv6o1dg7f" path="res://assets/dialogue/dialogue_anemonique.png" id="16_mh8mo"]
+[ext_resource type="FontFile" uid="uid://ca51g6n5ldf8u" path="res://assets/fonts/Marker Felt.ttf" id="17_7bp0g"]
+[ext_resource type="AudioStream" uid="uid://12ndg0wbjmqo" path="res://assets/audio/dialogue/vocal_1_002.mp3" id="17_g78vt"]
+[ext_resource type="AudioStream" uid="uid://dcwxqw1n1bjyt" path="res://assets/audio/dialogue/vocal_1_003.mp3" id="18_gkbs7"]
+[ext_resource type="AudioStream" uid="uid://dvqpraxgyq67s" path="res://assets/audio/dialogue/vocal_2_001.mp3" id="19_c4cst"]
+[ext_resource type="AudioStream" uid="uid://bym3tqw1g8cg5" path="res://assets/audio/dialogue/vocal_2_002.mp3" id="20_1mp4c"]
+[ext_resource type="AudioStream" uid="uid://btbo4p7tldpge" path="res://assets/audio/dialogue/vocal_2_003.mp3" id="21_spmko"]
+[ext_resource type="AudioStream" uid="uid://b6ciyer77u77k" path="res://assets/audio/dialogue/vocal_3_001.mp3" id="22_s0wpm"]
+[ext_resource type="Texture2D" uid="uid://duqc2foakunj1" path="res://assets/dialogue/dialogue_sam_seastar.png" id="22_wfmnx"]
+[ext_resource type="AudioStream" uid="uid://dufo2onyfji3s" path="res://assets/audio/dialogue/vocal_3_002.mp3" id="23_ichmb"]
+[ext_resource type="Texture2D" uid="uid://drj4g4kf7twr" path="res://assets/dialogue/dialogue_mayor_mackerel.png" id="23_n8661"]
+[ext_resource type="AudioStream" uid="uid://blthhx34balep" path="res://assets/audio/dialogue/vocal_3_003.mp3" id="24_3niio"]
+[ext_resource type="Texture2D" uid="uid://gapi177ph5vk" path="res://assets/dialogue/dialogue_fiona_the_foureyed_butterflyfish.png" id="24_onqdg"]
+[ext_resource type="AudioStream" uid="uid://qlrmcuabsn8b" path="res://assets/audio/dialogue/vocal_3_004.mp3" id="25_7d8wd"]
+[ext_resource type="AudioStream" uid="uid://c0ub427pxbe4k" path="res://assets/audio/dialogue/vocal_3_005.mp3" id="26_u2125"]
+[ext_resource type="AudioStream" uid="uid://8f65yipmsg6v" path="res://assets/audio/dialogue/vocal_3_006.mp3" id="27_ecl23"]
+[ext_resource type="AudioStream" uid="uid://c6lts2xwl3ods" path="res://assets/audio/dialogue/vocal_4_001.mp3" id="28_xuhrm"]
+[ext_resource type="AudioStream" uid="uid://c2onmhswcoio3" path="res://assets/audio/dialogue/vocal_4_002.mp3" id="29_el40i"]
+[ext_resource type="AudioStream" uid="uid://qncxx6nrnwpn" path="res://assets/audio/dialogue/vocal_4_003.mp3" id="30_q3gk4"]
+[ext_resource type="AudioStream" uid="uid://dj2n4t17t2o2r" path="res://assets/audio/dialogue/vocal_5_001.mp3" id="31_6wmlc"]
+[ext_resource type="AudioStream" uid="uid://ba846ntluxqc0" path="res://assets/audio/dialogue/vocal_5_002.mp3" id="32_etl4d"]
+[ext_resource type="AudioStream" uid="uid://b5lhrotli3wg6" path="res://assets/audio/dialogue/vocal_5_003.mp3" id="33_3p74j"]
+[ext_resource type="AudioStream" uid="uid://8vptboydfoc2" path="res://assets/audio/dialogue/vocal_6_001.mp3" id="34_k7o3r"]
+[ext_resource type="AudioStream" uid="uid://hq50r02yxv15" path="res://assets/audio/dialogue/vocal_6_002.mp3" id="35_shkot"]
+[ext_resource type="AudioStream" uid="uid://cqmqyroybksiq" path="res://assets/audio/dialogue/vocal_6_003.mp3" id="36_xatg7"]
+[ext_resource type="AudioStream" uid="uid://ciwllc6k74a0i" path="res://assets/audio/dialogue/vocal_7_001.mp3" id="37_73oiy"]
+[ext_resource type="AudioStream" uid="uid://c8dscpckwvyts" path="res://assets/audio/dialogue/vocal_7_002.mp3" id="38_du45i"]
+[ext_resource type="AudioStream" uid="uid://ddllmb2tr023h" path="res://assets/audio/dialogue/vocal_7_003.mp3" id="39_w5it1"]
 
 [sub_resource type="Resource" id="Resource_c4cst"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("3_xm044")
 name = "happy"
+character = null
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [sub_resource type="Resource" id="Resource_1mp4c"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("4_mh8mo")
 name = "middle"
+character = null
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [sub_resource type="Resource" id="Resource_wfmnx"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("5_7bp0g")
 name = "sad"
+character = null
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [sub_resource type="Resource" id="Resource_n8661"]
 script = ExtResource("2_ey2e8")
 audio = ExtResource("6_kpp2c")
 name = "sfx_bite_1"
+character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -45,6 +78,7 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("7_k26wb")
 name = "sfx_bite_2"
+character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -52,6 +86,7 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("8_0qag5")
 name = "sfx_move_through_anemones"
+character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -59,6 +94,7 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("9_fjnme")
 name = "sfx_select_plastic"
+character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -66,6 +102,7 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("10_28alx")
 name = "sfx_sharkalert"
+character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -73,6 +110,7 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("11_emnvs")
 name = "sfx_sparkles"
+character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -80,6 +118,7 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("12_ypw6b")
 name = "sfx_suck_in"
+character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -87,6 +126,7 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("13_dlb7n")
 name = "sfx_suck_in_1"
+character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -94,6 +134,7 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("14_g78vt")
 name = "sfx_suck_in_2"
+character = null
 type = 1
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
@@ -101,12 +142,228 @@ metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 script = ExtResource("2_ey2e8")
 audio = ExtResource("15_gkbs7")
 name = "sfx_turn_microplastic"
+character = null
 type = 1
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_3k8vr"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("16_dlb7n")
+name = "vocal_1_001"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_lkhw8"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("17_g78vt")
+name = "vocal_1_002"
+character = "ane_shocked"
+text = "[shake rate=20.0 level=5 connected=1]SHOCK[/SHOCK]"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_78ebp"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("18_gkbs7")
+name = "vocal_1_003"
+character = "ane_shocked"
+text = "[tornado radius=10.0 freq=1.0 connected=1]Holy carp![/tornado] what happened here? our riff is trashed with plastic!!!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_spmko"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("19_c4cst")
+name = "vocal_2_001"
+character = "maj"
+text = "[rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]Fin-ally[/rainbow] you're back! We need your help cleaning!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_s0wpm"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("20_1mp4c")
+name = "vocal_2_002"
+text = "Do you think this is [pulse freq=1.0 color=#ffffff40 ease=-2.0]possible[/pulse]??"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_ichmb"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("21_spmko")
+name = "vocal_2_003"
+character = "maj"
+text = "[rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]Any-fin[/rainbow] is possible!!!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_pokcu"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("22_s0wpm")
+name = "vocal_3_001"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_hj0ue"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("23_ichmb")
+name = "vocal_3_002"
+text = "Pick up trash you see swimming around"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_o7trt"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("24_3niio")
+name = "vocal_3_003"
+text = "Also: You can collect more than one piece of trash!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_gybb0"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("25_7d8wd")
+name = "vocal_3_004"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_xpaiq"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("26_u2125")
+name = "vocal_3_005"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_gre3y"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("27_ecl23")
+name = "vocal_3_006"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_ma554"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("28_xuhrm")
+name = "vocal_4_001"
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_dsph8"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("28_xuhrm")
+name = "vocal_4_001"
+character = "bel"
+text = "Thank you for cleaning! I know it still seems like a lot but: Stay [wave amp=50.0 freq=5.0 connected=1]octo-mistic[/wave]!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_hx8jr"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("29_el40i")
+name = "vocal_4_002"
+character = "bel"
+text = "Take this token of my [fade start=4 length=14]finfullness[/fade]:"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_d1xy6"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("30_q3gk4")
+name = "vocal_4_003"
+character = "ane"
+text = "Thanks! I can really use this!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_njjry"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("31_6wmlc")
+name = "vocal_5_001"
+character = "sam"
+text = "Not crabby! Don't give up! take this ...for morale!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_ure5i"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("32_etl4d")
+name = "vocal_5_002"
+character = "sam"
+text = "Take this worldwide right to [rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]a-BARSCH-rtion[/rainbow]... for morale!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_56aht"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("33_3p74j")
+name = "vocal_5_003"
+character = "ane"
+text = "Thanks! Flintas around the world can really use this!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_j0yq0"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("34_k7o3r")
+name = "vocal_6_001"
+character = "fio"
+text = "Thank you for clearing most of the [wave amp=50.0 freq=5.0 connected=1]trash[/wave]!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_4jp42"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("35_shkot")
+name = "vocal_6_002"
+character = "fio"
+text = "Here is a [rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]Crown[/rainbow]"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_ocgme"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("36_xatg7")
+name = "vocal_6_003"
+character = "ane"
+text = "[wave amp=50.0 freq=5.0 connected=1]Thank you so much![/wave]"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_s5hm0"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("37_73oiy")
+name = "vocal_7_001"
+character = "ane"
+text = "It’s time to [rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]shell-abrate[/rainbow]!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_bgfbe"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("38_du45i")
+name = "vocal_7_002"
+character = "ane"
+text = "You get this order of: [rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]Riffs Best Trash-Collector[/rainbow]!"
+type = 2
+metadata/_custom_type_script = "uid://c056sb2g6qwd6"
+
+[sub_resource type="Resource" id="Resource_vwfoo"]
+script = ExtResource("2_ey2e8")
+audio = ExtResource("39_w5it1")
+name = "vocal_7_003"
+character = "ane"
+text = "[tornado radius=10.0 freq=1.0 connected=1]Yippieh![/tornado]"
+type = 2
 metadata/_custom_type_script = "uid://c056sb2g6qwd6"
 
 [node name="AudioManager" type="Node" node_paths=PackedStringArray("caption", "canvas_layer")]
 script = ExtResource("1_s2nsv")
-sounds = Array[ExtResource("2_ey2e8")]([SubResource("Resource_c4cst"), SubResource("Resource_1mp4c"), SubResource("Resource_wfmnx"), SubResource("Resource_n8661"), SubResource("Resource_onqdg"), SubResource("Resource_15ev1"), SubResource("Resource_v6axm"), SubResource("Resource_hkpre"), SubResource("Resource_mjcpo"), SubResource("Resource_qnat3"), SubResource("Resource_nqbmb"), SubResource("Resource_m0mjg"), SubResource("Resource_y2hjj")])
+sounds = Array[ExtResource("2_ey2e8")]([SubResource("Resource_c4cst"), SubResource("Resource_1mp4c"), SubResource("Resource_wfmnx"), SubResource("Resource_n8661"), SubResource("Resource_onqdg"), SubResource("Resource_15ev1"), SubResource("Resource_v6axm"), SubResource("Resource_hkpre"), SubResource("Resource_mjcpo"), SubResource("Resource_qnat3"), SubResource("Resource_nqbmb"), SubResource("Resource_m0mjg"), SubResource("Resource_y2hjj"), SubResource("Resource_3k8vr"), SubResource("Resource_lkhw8"), SubResource("Resource_78ebp"), SubResource("Resource_spmko"), SubResource("Resource_s0wpm"), SubResource("Resource_ichmb"), SubResource("Resource_pokcu"), SubResource("Resource_hj0ue"), SubResource("Resource_o7trt"), SubResource("Resource_gybb0"), SubResource("Resource_xpaiq"), SubResource("Resource_gre3y"), SubResource("Resource_ma554"), SubResource("Resource_dsph8"), SubResource("Resource_hx8jr"), SubResource("Resource_d1xy6"), SubResource("Resource_njjry"), SubResource("Resource_ure5i"), SubResource("Resource_56aht"), SubResource("Resource_j0yq0"), SubResource("Resource_4jp42"), SubResource("Resource_ocgme"), SubResource("Resource_s5hm0"), SubResource("Resource_bgfbe"), SubResource("Resource_vwfoo")])
+char_dict = Dictionary[String, Texture2D]({
+"ane": ExtResource("16_mh8mo"),
+"fio": ExtResource("24_onqdg"),
+"may": ExtResource("23_n8661"),
+"sam": ExtResource("22_wfmnx")
+})
 caption = NodePath("CanvasLayer/Control/MarginContainer/Caption")
 canvas_layer = NodePath("CanvasLayer")
 
@@ -121,21 +378,35 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -234.0
+offset_top = -310.0
+offset_right = 2154.0
+offset_bottom = 1358.0
+texture = ExtResource("16_mh8mo")
+stretch_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 536.0
+offset_top = 793.0
+offset_right = -191.0
+offset_bottom = -65.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 32
+grow_vertical = 2
 
 [node name="Caption" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 36
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("17_7bp0g")
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
+text = "Anemonique returns home from holidays and finds herself in......"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

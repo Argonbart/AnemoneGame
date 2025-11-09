@@ -4,6 +4,7 @@ extends Node
 signal dialogue_finished(last_dialogue)
 
 @export var sounds: Array[Sound] = []
+@export var char_dict: Dictionary[String, Texture2D]
 @export var caption: RichTextLabel
 @export var canvas_layer: CanvasLayer
 
