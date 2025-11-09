@@ -30,6 +30,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	_collected = true
 	set_deferred("monitoring", false)
 	SignalBus.trash_collected.emit(self)
+	AudioManager.play("sfx_select_plastic")
 	
 	# Remove progress bar
 	var tween: Tween = create_tween()
@@ -50,7 +51,7 @@ func _process(delta: float) -> void:
 func decay():
 	_decayed = true
 	set_deferred("monitoring", false)
-	# TODO: Sound
+	AudioManager.play("sfx_turn_microplastic")
 	var tween: Tween = create_tween()
 	tween.tween_property(sprite_2d, "modulate:a", 0.0, 1.0)
 	SignalBus.trash_decayed.emit()
