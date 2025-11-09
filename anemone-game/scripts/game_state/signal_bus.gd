@@ -12,6 +12,8 @@ signal protection_lost()
 signal shark_bit()
 signal replace_decayed_trash()
 signal update_total_trash_in_game()
+signal begin_cutscene(scene_id: int)
+signal end_cutscene()
 
 
 func _ready() -> void:
