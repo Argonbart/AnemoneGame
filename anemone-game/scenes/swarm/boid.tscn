@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceq03o3kh2yd5"]
 
-[ext_resource type="Script" uid="uid://demfm7rgjmwqb" path="res://scripts/boid.gd" id="1_3wvxu"]
+[ext_resource type="Script" uid="uid://demfm7rgjmwqb" path="res://scripts/swarm/boid.gd" id="1_3wvxu"]
 [ext_resource type="Texture2D" uid="uid://0hik28w8xd85" path="res://assets/icon.svg" id="2_tbjv5"]
 
 [node name="Boid" type="Node2D"]
