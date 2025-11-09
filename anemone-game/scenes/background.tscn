@@ -43,6 +43,103 @@ texture = ExtResource("2_y0upk")
 position = Vector2(4502, -2836)
 texture = ExtResource("3_1tmhi")
 
+[node name="Stone2" type="Sprite2D" parent="Stone2"]
+position = Vector2(21, 5427)
+texture = ExtResource("3_1tmhi")
+
+[node name="Stone2" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-3528, 1611)
+scale = Vector2(-1, 1)
+texture = ExtResource("3_1tmhi")
+
+[node name="Stone3" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-9117, 1584)
+texture = ExtResource("3_1tmhi")
+
+[node name="Stone9" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-5872.5, 899)
+texture = ExtResource("6_8efq7")
+
+[node name="StoneGodot2" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-5679.5, 518)
+texture = ExtResource("7_da6cc")
+
+[node name="Coral5" parent="Stone2/Stone2" instance=ExtResource("16_ivgg2")]
+position = Vector2(-8311, -2044)
+texture = ExtResource("12_b6e46")
+
+[node name="Coral6" parent="Stone2/Stone2" instance=ExtResource("16_ivgg2")]
+position = Vector2(-7402.5, -703)
+texture = ExtResource("12_td6w2")
+
+[node name="Coral12" parent="Stone2/Stone2" instance=ExtResource("16_ivgg2")]
+position = Vector2(-8073, -550)
+texture = ExtResource("15_0470j")
+
+[node name="Coral13" parent="Stone2/Stone2" instance=ExtResource("16_ivgg2")]
+position = Vector2(-9234, 559)
+texture = ExtResource("12_td6w2")
+
+[node name="Coral14" parent="Stone2/Stone2" instance=ExtResource("16_ivgg2")]
+position = Vector2(-7241, 402)
+texture = ExtResource("15_0470j")
+
+[node name="Coral15" parent="Stone2/Stone2" instance=ExtResource("16_ivgg2")]
+position = Vector2(-6919.5, 227)
+texture = ExtResource("12_td6w2")
+
+[node name="Coral16" parent="Stone2/Stone2" instance=ExtResource("16_ivgg2")]
+position = Vector2(-6291.5, -262)
+texture = ExtResource("12_b6e46")
+
+[node name="Stone10" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-7455.5, -1343)
+texture = ExtResource("4_l5f8m")
+
+[node name="SeaGrass54" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-8049, 473)
+texture = ExtResource("9_b6e46")
+
+[node name="SeaGrass55" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-6790.5, -1537)
+texture = ExtResource("10_td6w2")
+
+[node name="SeaGrass56" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-6881.5, -1340)
+texture = ExtResource("10_td6w2")
+
+[node name="SeaGrass57" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-8211, 603)
+texture = ExtResource("11_r2thq")
+
+[node name="SeaGrass58" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-6673.5, -1340)
+texture = ExtResource("9_b6e46")
+
+[node name="SeaGrass59" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-7893, 565)
+texture = ExtResource("11_r2thq")
+
+[node name="SeaGrass60" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-6544.5, -1359)
+texture = ExtResource("10_td6w2")
+
+[node name="SeaGrass61" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-6649, -1735.5)
+texture = ExtResource("10_td6w2")
+
+[node name="SeaGrass62" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-6504, -1740.5)
+texture = ExtResource("8_da6cc")
+
+[node name="SeaGrass63" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-6948.5, -1854)
+texture = ExtResource("8_da6cc")
+
+[node name="SeaGrass64" type="Sprite2D" parent="Stone2/Stone2"]
+position = Vector2(-6847.5, -1888)
+texture = ExtResource("9_b6e46")
+
 [node name="Stone3" type="Sprite2D" parent="."]
 position = Vector2(1025, -3513)
 texture = ExtResource("4_l5f8m")
@@ -51,8 +148,18 @@ texture = ExtResource("4_l5f8m")
 position = Vector2(927, -1287)
 texture = ExtResource("5_6vm3t")
 
+[node name="Stone9" type="Sprite2D" parent="."]
+position = Vector2(4347, 4425)
+texture = ExtResource("6_8efq7")
+
+[node name="Stone8" type="Sprite2D" parent="."]
+position = Vector2(1020, 1869)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+texture = ExtResource("6_8efq7")
+
 [node name="Stone5" type="Sprite2D" parent="."]
-position = Vector2(2792, 2698)
+position = Vector2(3420, 997)
 texture = ExtResource("6_8efq7")
 
 [node name="StoneGodot" type="Sprite2D" parent="."]
@@ -949,7 +1056,7 @@ position = Vector2(6607, -1516)
 texture = ExtResource("8_da6cc")
 
 [node name="Coral2" parent="Stone6" instance=ExtResource("16_ivgg2")]
-position = Vector2(-2444, 1632)
+position = Vector2(-2434, 2390)
 texture = ExtResource("15_0470j")
 
 [node name="SeaGrass94" type="Sprite2D" parent="Stone6"]
@@ -1064,27 +1171,9 @@ texture = ExtResource("14_r2thq")
 position = Vector2(-4419, -3264)
 texture = ExtResource("12_b6e46")
 
-[node name="Coral2" type="Sprite2D" parent="."]
-position = Vector2(3262, -2539)
-texture = ExtResource("12_td6w2")
-
-[node name="Coral4" type="Sprite2D" parent="."]
-position = Vector2(2458, -1746)
-scale = Vector2(-1, 1)
-texture = ExtResource("12_td6w2")
-
 [node name="Stone7" type="Sprite2D" parent="."]
 position = Vector2(3554, -4140)
 texture = ExtResource("5_6vm3t")
-
-[node name="Coral5" type="Sprite2D" parent="."]
-position = Vector2(4377, -2934)
-texture = ExtResource("12_b6e46")
-
-[node name="Coral6" type="Sprite2D" parent="."]
-position = Vector2(4394, -2835.9998)
-rotation = 0.53232545
-texture = ExtResource("12_td6w2")
 
 [node name="SeaGrass3" type="Sprite2D" parent="."]
 position = Vector2(769, -1966)
@@ -1115,7 +1204,7 @@ position = Vector2(357, -168)
 texture = ExtResource("12_td6w2")
 
 [node name="Coral8" parent="." instance=ExtResource("16_ivgg2")]
-position = Vector2(392, 240)
+position = Vector2(901, 652)
 texture = ExtResource("15_0470j")
 
 [node name="Coral9" parent="." instance=ExtResource("16_ivgg2")]
@@ -1125,3 +1214,104 @@ texture = ExtResource("12_b6e46")
 [node name="Coral11" parent="." instance=ExtResource("16_ivgg2")]
 position = Vector2(1890, -3145)
 texture = ExtResource("15_0470j")
+
+[node name="Coral3" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(3233, -2541)
+texture = ExtResource("12_td6w2")
+
+[node name="Coral2" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(2459, -1754)
+scale = Vector2(-1, 1)
+texture = ExtResource("12_td6w2")
+
+[node name="Coral4" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(4383, -2936)
+texture = ExtResource("12_b6e46")
+
+[node name="StoneGodot2" type="Sprite2D" parent="."]
+position = Vector2(4540, 4044)
+texture = ExtResource("7_da6cc")
+
+[node name="Coral5" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(1209, 3127)
+texture = ExtResource("12_b6e46")
+
+[node name="Coral6" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(2817, 2823)
+texture = ExtResource("12_td6w2")
+
+[node name="Coral12" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(1979, 2464)
+texture = ExtResource("15_0470j")
+
+[node name="Coral13" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(2286, 2785)
+texture = ExtResource("12_td6w2")
+
+[node name="Coral14" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(2043, 3436)
+texture = ExtResource("15_0470j")
+
+[node name="Coral15" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(3300, 3753)
+texture = ExtResource("12_td6w2")
+
+[node name="Coral16" parent="." instance=ExtResource("16_ivgg2")]
+position = Vector2(3928, 3264)
+texture = ExtResource("12_b6e46")
+
+[node name="Stone10" type="Sprite2D" parent="."]
+position = Vector2(2764, 2183)
+texture = ExtResource("4_l5f8m")
+
+[node name="SeaGrass54" type="Sprite2D" parent="."]
+position = Vector2(2170.5, 3999)
+texture = ExtResource("9_b6e46")
+
+[node name="SeaGrass55" type="Sprite2D" parent="."]
+position = Vector2(3429, 1989)
+texture = ExtResource("10_td6w2")
+
+[node name="SeaGrass56" type="Sprite2D" parent="."]
+position = Vector2(3338, 2186)
+texture = ExtResource("10_td6w2")
+
+[node name="SeaGrass57" type="Sprite2D" parent="."]
+position = Vector2(2008.5, 4129)
+texture = ExtResource("11_r2thq")
+
+[node name="SeaGrass58" type="Sprite2D" parent="."]
+position = Vector2(3546, 2186)
+texture = ExtResource("9_b6e46")
+
+[node name="SeaGrass59" type="Sprite2D" parent="."]
+position = Vector2(2326.5, 4091)
+texture = ExtResource("11_r2thq")
+
+[node name="SeaGrass60" type="Sprite2D" parent="."]
+position = Vector2(3675, 2167)
+texture = ExtResource("10_td6w2")
+
+[node name="SeaGrass61" type="Sprite2D" parent="."]
+position = Vector2(3570.5, 1790.5)
+texture = ExtResource("10_td6w2")
+
+[node name="SeaGrass62" type="Sprite2D" parent="."]
+position = Vector2(3715.5, 1785.5)
+texture = ExtResource("8_da6cc")
+
+[node name="SeaGrass63" type="Sprite2D" parent="."]
+position = Vector2(3271, 1672)
+texture = ExtResource("8_da6cc")
+
+[node name="SeaGrass64" type="Sprite2D" parent="."]
+position = Vector2(3372, 1638)
+texture = ExtResource("9_b6e46")
+
+[node name="Stone1" type="Sprite2D" parent="."]
+position = Vector2(-4644, 1351)
+texture = ExtResource("2_y0upk")
+
+[node name="Stone11" type="Sprite2D" parent="."]
+position = Vector2(-557, 937)
+texture = ExtResource("2_y0upk")
