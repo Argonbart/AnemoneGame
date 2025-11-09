@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bbsls5gq8yerp" path="res://scenes/background.tscn" id="1_5fr2l"]
 [ext_resource type="PackedScene" uid="uid://tj5ds5rxwv2e" path="res://scenes/ui/DebugHUD.tscn" id="1_6we3w"]
+[ext_resource type="Script" uid="uid://cwxit42aa6hhj" path="res://scripts/main_level.gd" id="1_iqu8w"]
 [ext_resource type="PackedScene" uid="uid://cy3x4gwb6yjx4" path="res://scenes/player/player.tscn" id="1_v3uhd"]
 [ext_resource type="PackedScene" uid="uid://nyxajlm4bhya" path="res://scenes/trash/trash_spawner.tscn" id="2_ufxs0"]
 [ext_resource type="Shader" uid="uid://c5x3skmrvee7" path="res://assets/shaders/post_processing.gdshader" id="4_iqu8w"]
@@ -43,6 +44,7 @@ _data = {
 point_count = 5
 
 [node name="MainLevel" type="Node2D"]
+script = ExtResource("1_iqu8w")
 
 [node name="Gameplay" type="Node2D" parent="."]
 
