@@ -21,7 +21,7 @@ func _ready() -> void:
 			_show_price()
 			AudioManager.play_dialogue("vocal_4_003").finished.connect((func():
 				await get_tree().create_timer(2.0).timeout
-				get_parent().close_cutscene()
+				get_parent().get_parent().close_cutscene()
 			))
 		))
 	))

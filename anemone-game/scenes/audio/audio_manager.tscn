@@ -357,6 +357,7 @@ caption = NodePath("CanvasLayer/Control/MarginContainer/Caption")
 canvas_layer = NodePath("CanvasLayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
 visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]

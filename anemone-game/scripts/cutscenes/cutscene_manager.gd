@@ -24,6 +24,18 @@ func _ready() -> void:
 	SignalBus.end_cutscene.connect(on_end_cutscene)
 
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("shortcut_1"):
+		print("Start Cutscene 1")
+		SignalBus.begin_cutscene.emit(1)
+	if Input.is_action_just_pressed("shortcut_2"):
+		SignalBus.begin_cutscene.emit(2)
+	if Input.is_action_just_pressed("shortcut_3"):
+		SignalBus.begin_cutscene.emit(3)
+	if Input.is_action_just_pressed("shortcut_4"):
+		SignalBus.begin_cutscene.emit(4)
+
+
 func on_begin_cutscene(scene_id: int):
 	if active_scene != null:
 		return

@@ -22,7 +22,7 @@ func _ready() -> void:
 			AudioManager.play_dialogue("vocal_5_003").finished.connect((func():
 				ane.stop()
 				await get_tree().create_timer(2.0).timeout
-				get_parent().close_cutscene()
+				get_parent().get_parent().close_cutscene()
 			))
 		))
 	))
