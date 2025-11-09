@@ -25,12 +25,15 @@ func is_player_carrying_trash() -> bool:
 
 func _on_trash_collected(_trash: Trash):
 	trash_carried += 1
+	print('trash carried = ' + str(trash_carried))
 
 
 func _on_trash_dropped():
-	total_trash_in_game -= trash_carried
-	trash_carried = 0
-	check_phase_progression()
+	if (trash_carried > 0):
+		print('dropped. trash carried = ' + str(trash_carried))
+		total_trash_in_game -= trash_carried
+		trash_carried = 0
+		check_phase_progression()
 
 
 func _on_anemone_entered():
@@ -51,7 +54,8 @@ func _on_trash_decayed():
 	current_micro_plastic_pollution += 1
 	SignalBus.microplastics_pollution_changed.emit()
 	if current_micro_plastic_pollution >= max_micro_plastic_pollution:
-		print('YOU LOST')
+		#print('YOU LOST')
+		pass
 
 
 func _on_trash_spawned(has_replaced_decaying_trash: bool):
@@ -71,21 +75,23 @@ func check_phase_progression():
 		if total_trash_in_game < GameConfig.phase_3_max_trash:
 			begin_phase(3)
 	elif current_game_phase == 3:
-		if total_trash_in_game < 0:
+		if total_trash_in_game <= 0:
 			begin_phase(4)
 
 
 func begin_phase(phase_id: int):
 	current_game_phase = phase_id
+	SignalBus.begin_phase.emit(phase_id)
 	print('next phase is ' + str(phase_id))
 	if (phase_id == GameConfig.phase_to_reach_for_win):
 		win_game()
 	else:
-		pass
+		SignalBus.begin_cutscene.emit(phase_id)
 
 
 func win_game():
 	print('WON')
+	SignalBus.begin_cutscene.emit(CutsceneConfig.CUTSCENE_WIN_ID)
 
 
 func is_map_too_full() -> bool:

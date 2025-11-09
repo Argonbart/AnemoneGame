@@ -1,8 +1,8 @@
 class_name Boid
 extends Node2D
 
-@export var maxVelocity: float = 280
-@export var maxAcceleration: float = 1000
+@export var maxVelocity: float = 700
+@export var maxAcceleration: float = 1800
 @export var rotationOffset: float = PI/2.
 
 var velocity := Vector2.ZERO

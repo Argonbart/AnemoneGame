@@ -19,6 +19,9 @@ limit_bottom = 5000
 limit_smoothed = true
 
 [node name="Fish" parent="." node_paths=PackedStringArray("stick_to_head") instance=ExtResource("3_gmlin")]
+show_link_outlines = true
+show_link_polygons = true
+show_shape_points = true
 link_distance = 50.0
 roundness_factor = 0.15
 stick_to_head = [NodePath("../Camera2D")]

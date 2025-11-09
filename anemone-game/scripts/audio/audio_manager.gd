@@ -4,6 +4,7 @@ extends Node
 signal dialogue_finished(last_dialogue)
 
 @export var sounds: Array[Sound] = []
+@export var char_dict: Dictionary[String, Texture2D]
 @export var caption: RichTextLabel
 @export var canvas_layer: CanvasLayer
 
@@ -16,8 +17,9 @@ var dialogue_queue: Array[String]
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("skip"):
-		skip_current_cutscene()
+	#if Input.is_action_just_pressed("skip"):
+		#skip_current_cutscene()
+	pass
 
 
 func play(s_name: String) -> AudioStreamPlayer:

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nyxajlm4bhya" path="res://scenes/trash/trash_spawner.tscn" id="2_ufxs0"]
 [ext_resource type="Script" uid="uid://oelyqo3rf5e" path="res://scripts/shark/shark_manager.gd" id="4_qmak7"]
 [ext_resource type="PackedScene" uid="uid://beb3yvk4or5nw" path="res://scenes/trash/trash_drop_zone.tscn" id="5_8ra5a"]
-[ext_resource type="PackedScene" uid="uid://bj6awkohhvssi" path="res://scenes/cutscene_manager.tscn" id="6_bq26l"]
+[ext_resource type="PackedScene" uid="uid://bj6awkohhvssi" path="res://scenes/cutscenes/cutscene_manager.tscn" id="6_bq26l"]
 [ext_resource type="PackedScene" uid="uid://d2uuhl127kkgq" path="res://scenes/swarm/flock.tscn" id="7_u2c82"]
 [ext_resource type="PackedScene" uid="uid://ceq03o3kh2yd5" path="res://scenes/swarm/boid.tscn" id="8_k5pu3"]
 
@@ -31,88 +31,96 @@ size = Vector2(10, 10000)
 
 [sub_resource type="Curve2D" id="Curve2D_qmak7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -198, -189, 0, 0, 0, 0, 3087, -183, 0, 0, 0, 0, 3080, 2067, 0, 0, 0, 0, -186, 2048)
+"points": PackedVector2Array(0, 0, 0, 0, -5349, -5065, 0, 0, 0, 0, 2085.6697, -3745.9338, 0, 0, 0, 0, 4537, 874, 0, 0, 0, 0, -304.87448, 3989.8132, 0, 0, 0, 0, -4110.0728, -824.66406)
 }
-point_count = 4
+point_count = 5
 
 [node name="MainLevel" type="Node2D"]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Gameplay" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Gameplay"]
 texture = SubResource("GradientTexture2D_qmak7")
 
-[node name="Player" parent="." instance=ExtResource("1_v3uhd")]
+[node name="Player" parent="Gameplay" instance=ExtResource("1_v3uhd")]
 position = Vector2(1037, 769)
 
-[node name="Borders" type="StaticBody2D" parent="."]
+[node name="Borders" type="StaticBody2D" parent="Gameplay"]
 collision_layer = 16
 
-[node name="BorderTop" type="CollisionShape2D" parent="Borders"]
+[node name="BorderTop" type="CollisionShape2D" parent="Gameplay/Borders"]
 position = Vector2(0, -5000)
 shape = SubResource("RectangleShape2D_qmak7")
 
-[node name="BorderBottom" type="CollisionShape2D" parent="Borders"]
+[node name="BorderBottom" type="CollisionShape2D" parent="Gameplay/Borders"]
 position = Vector2(0, 5000)
 shape = SubResource("RectangleShape2D_8ra5a")
 
-[node name="BorderLeft" type="CollisionShape2D" parent="Borders"]
+[node name="BorderLeft" type="CollisionShape2D" parent="Gameplay/Borders"]
 position = Vector2(-5000, 0)
 shape = SubResource("RectangleShape2D_bq26l")
 
-[node name="BorderRight" type="CollisionShape2D" parent="Borders"]
+[node name="BorderRight" type="CollisionShape2D" parent="Gameplay/Borders"]
 position = Vector2(5000, 0)
 shape = SubResource("RectangleShape2D_u2c82")
 
-[node name="TrashSpawner" parent="." instance=ExtResource("2_ufxs0")]
+[node name="TrashSpawner" parent="Gameplay" instance=ExtResource("2_ufxs0")]
 position = Vector2(216, 228)
 spawn_area_rect = Rect2(0, 0, 2322, 1397)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="Gameplay"]
 
-[node name="DebugHud" parent="CanvasLayer" instance=ExtResource("1_6we3w")]
+[node name="DebugHud" parent="Gameplay/CanvasLayer" instance=ExtResource("1_6we3w")]
 offset_left = 79.0
 offset_top = 51.0
 offset_right = -1521.0
 offset_bottom = -849.0
+metadata/_edit_use_anchors_ = true
 
-[node name="SharkManager" type="Node2D" parent="." node_paths=PackedStringArray("player", "outside_path", "peace_timer", "hunt_timer")]
+[node name="SharkManager" type="Node2D" parent="Gameplay" node_paths=PackedStringArray("flock", "player", "outside_path", "peace_timer", "hunt_timer")]
 script = ExtResource("4_qmak7")
+flock = NodePath("../Flock")
 player = NodePath("../Player")
 outside_path = NodePath("OutsidePath")
 peace_timer = NodePath("PeaceTimer")
 hunt_timer = NodePath("HuntTimer")
 
-[node name="PeaceTimer" type="Timer" parent="SharkManager"]
+[node name="PeaceTimer" type="Timer" parent="Gameplay/SharkManager"]
 wait_time = 20.0
 one_shot = true
 
-[node name="HuntTimer" type="Timer" parent="SharkManager"]
+[node name="HuntTimer" type="Timer" parent="Gameplay/SharkManager"]
 wait_time = 10.0
 one_shot = true
 
-[node name="OutsidePath" type="Path2D" parent="SharkManager"]
+[node name="OutsidePath" type="Path2D" parent="Gameplay/SharkManager"]
+position = Vector2(431.85498, 454.9707)
+scale = Vector2(0.9048149, 0.8900239)
 curve = SubResource("Curve2D_qmak7")
 
-[node name="TrashDropZone" parent="." instance=ExtResource("5_8ra5a")]
+[node name="TrashDropZone" parent="Gameplay" instance=ExtResource("5_8ra5a")]
 position = Vector2(1886, -648)
 
-[node name="TrashDropZone2" parent="." instance=ExtResource("5_8ra5a")]
+[node name="TrashDropZone2" parent="Gameplay" instance=ExtResource("5_8ra5a")]
 position = Vector2(-1085, 3000)
 
-[node name="TrashDropZone3" parent="." instance=ExtResource("5_8ra5a")]
+[node name="TrashDropZone3" parent="Gameplay" instance=ExtResource("5_8ra5a")]
 position = Vector2(-3378, -1382)
 
-[node name="TrashDropZone4" parent="." instance=ExtResource("5_8ra5a")]
+[node name="TrashDropZone4" parent="Gameplay" instance=ExtResource("5_8ra5a")]
 position = Vector2(-727, -4439)
 
-[node name="CutsceneManager" parent="." instance=ExtResource("6_bq26l")]
-
-[node name="Flock" parent="." instance=ExtResource("7_u2c82")]
+[node name="Flock" parent="Gameplay" instance=ExtResource("7_u2c82")]
 boidScene = ExtResource("8_k5pu3")
 visualRange = 150.0
-predatorMinDist = 1800.0
+predatorMinDist = 2000.0
 cohesionWeight = 3.0
-separationWeight = 150.0
+separationWeight = 200.0
 alignmentWeight = 10.0
+predatorWeight = 1250.0
 
-[connection signal="timeout" from="SharkManager/PeaceTimer" to="SharkManager" method="_on_peace_timer_timeout"]
-[connection signal="timeout" from="SharkManager/HuntTimer" to="SharkManager" method="_on_hunt_timer_timeout"]
+[node name="CutsceneManager" parent="." node_paths=PackedStringArray("gameplay_node") instance=ExtResource("6_bq26l")]
+gameplay_node = NodePath("../Gameplay")
+
+[connection signal="timeout" from="Gameplay/SharkManager/PeaceTimer" to="Gameplay/SharkManager" method="_on_peace_timer_timeout"]
+[connection signal="timeout" from="Gameplay/SharkManager/HuntTimer" to="Gameplay/SharkManager" method="_on_hunt_timer_timeout"]

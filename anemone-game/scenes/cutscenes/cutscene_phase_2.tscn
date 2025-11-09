@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://mpiclkkwrjad"]
+[gd_scene load_steps=2 format=3 uid="uid://mpiclkkwrjad"]
+
+[ext_resource type="Script" uid="uid://kyy3bexhxcqh" path="res://scripts/cutscenes/cutscene.gd" id="1_jy6nb"]
 
 [node name="Cutscene2" type="Node2D"]
+script = ExtResource("1_jy6nb")
+cutscene_id = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

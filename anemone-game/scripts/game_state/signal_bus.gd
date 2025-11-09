@@ -14,6 +14,7 @@ signal replace_decayed_trash()
 signal update_total_trash_in_game()
 signal begin_cutscene(scene_id: int)
 signal end_cutscene()
+signal begin_phase(phase_id: int)
 
 
 func _ready() -> void:

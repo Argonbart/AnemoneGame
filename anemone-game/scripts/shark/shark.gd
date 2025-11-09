@@ -8,9 +8,7 @@ extends Node2D
 @export var next_position_timer: Timer
 
 @export var fish: Fish
-@export var flock: Flock
 
-var map_size: Vector2
 var target: Player
 var on_the_hunt: bool = true
 
@@ -23,6 +21,10 @@ func _process(_delta):
 		var target_position = target.fish.get_links().front().global_position
 		var distance_to_target = target_position.distance_to(head_pos)
 		if distance_to_target < killDistance:
+			if randf() < 0.5:
+				AudioManager.play("sfx_bite_1")
+			else:
+				AudioManager.play("sfx_bite_2")
 			print("YOU GOT EATEN BY SHARK")
 			SignalBus.shark_bit.emit()
 	
@@ -44,7 +46,7 @@ func target_point(point: Vector2):
 
 
 func _target_random_point_on_map():
-	fish.target_position = Vector2(randf_range(0.0, map_size.x), randf_range(0.0, map_size.y))
+	fish.target_position = Vector2(randf_range(0.0, GameConfig.map_size_x), randf_range(0.0, GameConfig.map_size_y))
 
 
 func _on_random_clock_timeout() -> void:
