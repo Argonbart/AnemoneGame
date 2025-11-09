@@ -30,7 +30,7 @@ func on_begin_cutscene(scene_id: int):
 	
 	if scene_id == 1:
 		active_scene = phase_1_scene.instantiate()
-		AudioManager.play("sad")
+		#AudioManager.play("sad")
 	elif scene_id == 2:
 		active_scene = phase_2_scene.instantiate()
 		AudioManager.stop_all_of_type(Sound.AudioType.MUSIC)
