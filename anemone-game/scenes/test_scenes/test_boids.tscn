@@ -9,7 +9,16 @@
 [node name="Flock" parent="." instance=ExtResource("1_8o88j")]
 boidScene = ExtResource("2_3utj5")
 numberOfBoids = 40
+visualRange = null
+separationDistance = null
 predator = NodePath("../Shark")
+predatorMinDist = null
+maxNeighborsColor = null
+cohesionWeight = null
+separationWeight = null
+alignmentWeight = null
+bordersWeight = null
+predatorWeight = null
 
 [node name="Shark" parent="." instance=ExtResource("3_lhv63")]
 position = Vector2(80, 566)

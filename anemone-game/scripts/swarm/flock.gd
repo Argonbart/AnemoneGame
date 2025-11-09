@@ -1,3 +1,4 @@
+class_name Flock
 extends Node2D
 
 # General configuration
@@ -5,10 +6,9 @@ extends Node2D
 @export var numberOfBoids: int = 140
 @export var visualRange: float = 130
 @export var separationDistance: float = 80
-@export var predator: NodePath
+@export var predator: Shark
 @export var predatorMinDist: float = 300
 @export var maxNeighborsColor: int = 20
-var _predatorRef
 
 # Rule weights
 @export var cohesionWeight: float = 0.3
@@ -27,7 +27,6 @@ func _ready():
 	
 	randomize()
 	_envDims = get_viewport_rect().size
-	_predatorRef = get_node(predator)
 	
 	for i in range(numberOfBoids):
 		var instance = boidScene.instantiate()
@@ -46,7 +45,8 @@ func _process(delta):
 	_alignment()
 	
 	_borders(delta)
-	_escapePredator()
+	if predator:
+		_escapePredator()
 
 func _detectNeighbors():
 	for i in range(_boids.size()):
@@ -123,9 +123,10 @@ func _borders(delta):
 
 
 func _escapePredator():
+	var predator_position = predator.fish.get_links().front().global_position
 	for boid in _boids:
-		var dist = boid.get_position().distance_to(_predatorRef.get_position())
+		var dist = boid.get_position().distance_to(predator_position)
 		if (dist < predatorMinDist):
-			var dir = (boid.get_position() - _predatorRef.get_position()).normalized()
+			var dir = (boid.get_position() - predator_position).normalized()
 			var multiplier = sqrt(1 - (dist / predatorMinDist))
 			boid.acceleration += dir * multiplier * predatorWeight

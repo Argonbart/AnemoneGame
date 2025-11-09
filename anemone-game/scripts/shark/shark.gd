@@ -8,6 +8,7 @@ extends Node2D
 @export var next_position_timer: Timer
 
 @export var fish: Fish
+@export var flock: Flock
 
 var map_size: Vector2
 var target: Player
@@ -18,7 +19,9 @@ func _process(_delta):
 	# DIRTY check for collision with player
 	if fish:
 		var head_pos = fish.get_links().front().global_position
-		var distance_to_target = target.fish.global_position.distance_to(head_pos)
+		# FIXME is global_position the right one here?
+		var target_position = target.fish.get_links().front().global_position
+		var distance_to_target = target_position.distance_to(head_pos)
 		if distance_to_target < killDistance:
 			print("YOU GOT EATEN BY SHARK")
 			SignalBus.shark_bit.emit()
