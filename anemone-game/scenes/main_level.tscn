@@ -31,9 +31,9 @@ size = Vector2(10, 10000)
 
 [sub_resource type="Curve2D" id="Curve2D_qmak7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -198, -189, 0, 0, 0, 0, 3087, -183, 0, 0, 0, 0, 3080, 2067, 0, 0, 0, 0, -186, 2048)
+"points": PackedVector2Array(0, 0, 0, 0, -5349, -5065, 0, 0, 0, 0, 2085.6697, -3745.9338, 0, 0, 0, 0, 4537, 874, 0, 0, 0, 0, -304.87448, 3989.8132, 0, 0, 0, 0, -4110.0728, -824.66406)
 }
-point_count = 4
+point_count = 5
 
 [node name="MainLevel" type="Node2D"]
 
@@ -74,8 +74,9 @@ offset_top = 51.0
 offset_right = -1521.0
 offset_bottom = -849.0
 
-[node name="SharkManager" type="Node2D" parent="." node_paths=PackedStringArray("player", "outside_path", "peace_timer", "hunt_timer")]
+[node name="SharkManager" type="Node2D" parent="." node_paths=PackedStringArray("flock", "player", "outside_path", "peace_timer", "hunt_timer")]
 script = ExtResource("4_qmak7")
+flock = NodePath("../Flock")
 player = NodePath("../Player")
 outside_path = NodePath("OutsidePath")
 peace_timer = NodePath("PeaceTimer")
@@ -90,6 +91,8 @@ wait_time = 10.0
 one_shot = true
 
 [node name="OutsidePath" type="Path2D" parent="SharkManager"]
+position = Vector2(431.85498, 454.9707)
+scale = Vector2(0.9048149, 0.8900239)
 curve = SubResource("Curve2D_qmak7")
 
 [node name="TrashDropZone" parent="." instance=ExtResource("5_8ra5a")]

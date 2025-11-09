@@ -8,9 +8,7 @@ extends Node2D
 @export var next_position_timer: Timer
 
 @export var fish: Fish
-@export var flock: Flock
 
-var map_size: Vector2
 var target: Player
 var on_the_hunt: bool = true
 
@@ -44,7 +42,7 @@ func target_point(point: Vector2):
 
 
 func _target_random_point_on_map():
-	fish.target_position = Vector2(randf_range(0.0, map_size.x), randf_range(0.0, map_size.y))
+	fish.target_position = Vector2(randf_range(0.0, GameConfig.map_size_x), randf_range(0.0, GameConfig.map_size_y))
 
 
 func _on_random_clock_timeout() -> void:

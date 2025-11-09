@@ -3,6 +3,8 @@ extends Node2D
 const SHARK = preload("uid://badvssrgels4l")
 var shark: Shark
 
+@export var flock: Flock
+
  # FIXME adjust based on Scene Borders
 @export var map_size: Vector2 = Vector2(2500, 1000)
 
@@ -15,6 +17,7 @@ var shark: Shark
 var _await_despawn: bool = false
 
 func _ready() -> void:
+	
 	peace_timer.start()
 
 
@@ -35,12 +38,13 @@ func _on_peace_timer_timeout() -> void:
 	# shark spawnen random on outside_path
 	var spawn_point = get_rand_point_on_outside_path()
 	shark = SHARK.instantiate()
-	shark.fish.place(spawn_point) # FIXME <--- check for error
+	shark.fish.place(spawn_point) # FIXME <--- randomly jumps anywhere after
 	shark.target = player
 	shark.on_the_hunt = true
-	shark.map_size = map_size
 	self.add_child(shark)
 	shark.owner = self
+	
+	flock.predator = shark
 	
 	hunt_timer.start()
 
@@ -48,6 +52,7 @@ func _on_peace_timer_timeout() -> void:
 func _on_hunt_timer_timeout() -> void:
 	print("Shark lost interest")
 	shark.on_the_hunt = false
+	flock.predator = null
 	
 	var exit_point = get_rand_point_on_outside_path()
 	shark.target_point(exit_point)
