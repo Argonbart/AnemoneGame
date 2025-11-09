@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="AnemoneGame"
-run/main_scene="uid://tdp06ku87egs"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
@@ -31,7 +30,7 @@ CutsceneConfig="*res://scripts/cutscenes/cutscene_config.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 
 [input]
 
