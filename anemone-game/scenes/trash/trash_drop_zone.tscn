@@ -10,7 +10,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_kpe8h"]
-colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
+colors = PackedColorArray(0.56, 0.56, 1, 1, 0.86399996, 0.86399996, 0.96, 1)
 
 [node name="TrashDropZone" type="Area2D"]
 collision_layer = 4
