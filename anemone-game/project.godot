@@ -25,6 +25,7 @@ GameStateManager="*res://scripts/game_state/game_state_manager.gd"
 SignalBus="*res://scripts/game_state/signal_bus.gd"
 GameConfig="*res://scripts/game_state/game_config.gd"
 AudioManager="*res://scenes/audio/audio_manager.tscn"
+CutsceneConfig="*res://scripts/cutscenes/cutscene_config.gd"
 
 [display]
 

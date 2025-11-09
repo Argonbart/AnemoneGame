@@ -82,11 +82,12 @@ func begin_phase(phase_id: int):
 	if (phase_id == GameConfig.phase_to_reach_for_win):
 		win_game()
 	else:
-		pass
+		SignalBus.begin_cutscene.emit(phase_id)
 
 
 func win_game():
 	print('WON')
+	SignalBus.begin_cutscene.emit(CutsceneConfig.CUTSCENE_WIN_ID)
 
 
 func is_map_too_full() -> bool:

@@ -17,8 +17,9 @@ var dialogue_queue: Array[String]
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("skip"):
-		skip_current_cutscene()
+	#if Input.is_action_just_pressed("skip"):
+		#skip_current_cutscene()
+	pass
 
 
 func play(s_name: String) -> AudioStreamPlayer:
