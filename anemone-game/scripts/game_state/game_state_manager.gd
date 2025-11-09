@@ -70,6 +70,9 @@ func check_phase_progression():
 	elif current_game_phase == 2:
 		if total_trash_in_game < GameConfig.phase_3_max_trash:
 			begin_phase(3)
+	elif current_game_phase == 3:
+		if total_trash_in_game < 0:
+			begin_phase(4)
 
 
 func begin_phase(phase_id: int):

@@ -17,7 +17,7 @@ var trash_spawn_limit_x_right := map_half_size_x - trash_spawn_screen_marging
 var trash_spawn_limit_y_top := -map_half_size_y + trash_spawn_screen_marging
 var trash_spawn_limit_y_bottom := map_half_size_y - trash_spawn_screen_marging
 
-var phase_to_reach_for_win = 3
+var phase_to_reach_for_win = 4
 
 
 func _ready() -> void:

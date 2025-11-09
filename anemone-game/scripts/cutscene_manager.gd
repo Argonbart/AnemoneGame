@@ -1,11 +1,34 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
+@export var phase_1_scene: PackedScene
+@export var phase_2_scene: PackedScene
+@export var phase_3_scene: PackedScene
+@export var win_scene: PackedScene
+@export var lose_trash_scene: PackedScene
+@export var lose_shark_scene: PackedScene
+
+var active_scene : Node2D = null
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	SignalBus.begin_cutscene.connect(on_begin_cutscene)
+	SignalBus.end_cutscene.connect(on_end_cutscene)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func on_begin_cutscene(scene_id: int):
+	if active_scene != null:
+		return
+	
+	if scene_id == 1:
+		active_scene = phase_1_scene.instantiate()
+	elif scene_id == 2:
+		active_scene = phase_2_scene.instantiate()
+	elif scene_id == 3:
+		active_scene = phase_2_scene.instantiate()
+	elif scene_id == 4:
+		active_scene = phase_2_scene.instantiate()
+
+
+func on_end_cutscene():
 	pass
