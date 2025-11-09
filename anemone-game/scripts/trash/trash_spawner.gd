@@ -22,12 +22,12 @@ func _process(delta: float) -> void:
 
 
 func spawn_trash():
-	var rand_x = rng.randf_range(spawn_area_rect.position.x, spawn_area_rect.position.x + spawn_area_rect.size.x)
-	var rand_y = rng.randf_range(spawn_area_rect.position.y, spawn_area_rect.position.y + spawn_area_rect.size.y)
+	var rand_x = rng.randf_range(-GameConfig.map_size_x / 2.0, GameConfig.map_size_x / 2.0)
+	var rand_y = rng.randf_range(-GameConfig.map_size_y / 2.0, GameConfig.map_size_y / 2.0)
 	var spawn_position = Vector2(rand_x, rand_y)
-	#print(str(rand_x) + ' ' + str(rand_y))
+	print(str(rand_x) + ' ' + str(rand_y))
 	
-	var instance = trash_scene.instantiate()
-	instance.position = spawn_position
+	var instance := trash_scene.instantiate() as Node2D
+	instance.global_position = spawn_position
 	add_child(instance)
 	
