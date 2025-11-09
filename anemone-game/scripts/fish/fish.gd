@@ -95,6 +95,20 @@ func _physics_process(delta: float) -> void:
 	redraw()
 
 
+func place(new_position: Vector2, direction: Vector2 = Vector2.ZERO):
+	if direction.is_zero_approx():
+		direction = Vector2.from_angle(randf() * 2 * PI)
+	direction = direction.normalized()
+	direction = direction.rotated(PI)
+	
+	var body = link_container.get_children()
+	body.reverse()
+	var i = 0
+	for link: Link in body:
+		link.global_position = new_position + i * link_distance * direction
+		i += 1
+
+
 func _add_link():
 	var new_link: Link = LINK.instantiate()
 	new_link.update.connect(redraw)
