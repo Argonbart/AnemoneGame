@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dlbyejyy6m3pj" path="res://scripts/trash/trash_drop_zone.gd" id="1_kpe8h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpe8h"]
-radius = 100.0
+radius = 200.0
 
 [sub_resource type="Curve" id="Curve_qn81e"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -20,7 +20,8 @@ script = ExtResource("1_kpe8h")
 shape = SubResource("CircleShape2D_kpe8h")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 1024
+scale = Vector2(2, 2)
+amount = 2400
 emission_shape = 1
 emission_sphere_radius = 100.0
 gravity = Vector2(0, 0)
