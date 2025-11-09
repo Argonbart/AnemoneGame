@@ -68,7 +68,9 @@ func _physics_process(delta: float) -> void:
 	var head: Link = link_container.get_children().back()
 	
 	# Respect borders
-	if abs(head.global_position.x) > 4500 or abs(head.global_position.y) > 4500:
+	var border_x = GameConfig.map_size_x / 2.0 - GameConfig.fish_nav_screen_margin
+	var border_y = GameConfig.map_size_y / 2.0 - GameConfig.fish_nav_screen_margin
+	if abs(head.global_position.x) > border_x or abs(head.global_position.y) > border_y:
 		target_position = Vector2.ZERO
 	
 	# Smooth steering with limited angular speed
