@@ -9,6 +9,7 @@ signal anemome_entered()
 signal anemone_exited()
 signal protection_gained()
 signal protection_lost()
+signal shark_bit()
 
 
 func _ready() -> void:
@@ -21,5 +22,6 @@ func _ready() -> void:
 	anemone_exited.get_name()
 	protection_gained.get_name()
 	protection_lost.get_name()
+	shark_bit.get_name()
 
 # TODO: Add information about collected/dropped trash

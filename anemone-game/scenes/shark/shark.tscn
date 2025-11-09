@@ -1,20 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://badvssrgels4l"]
+[gd_scene load_steps=3 format=3 uid="uid://badvssrgels4l"]
 
 [ext_resource type="Script" uid="uid://c8c3a61y6ls8d" path="res://scripts/shark/shark.gd" id="1_8l5qy"]
-[ext_resource type="Texture2D" uid="uid://dkoukjr3l5gjk" path="res://assets/trash/trash_bottle.png" id="2_v5iaq"]
 [ext_resource type="PackedScene" uid="uid://bq0yvub2l8hq6" path="res://scenes/fish/fish.tscn" id="3_likij"]
 
 [node name="Shark" type="Node2D" node_paths=PackedStringArray("next_position_timer", "fish")]
 script = ExtResource("1_8l5qy")
+killDistance = 1500.0
 next_position_timer = NodePath("NextPositionTimer")
 fish = NodePath("Fish")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_v5iaq")
-
 [node name="Fish" parent="." instance=ExtResource("3_likij")]
+collision_layer = 16
+show_link_outlines = true
+show_link_polygons = true
+show_shape_points = true
 link_distance = 81.0
 roundness_factor = 0.5
+max_turn_deg_per_sec = 85.0
 
 [node name="Link0" parent="Fish/LinkContainer" index="0"]
 shape_points = Array[float]([0.25, -0.25])

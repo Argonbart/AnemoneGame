@@ -5,18 +5,30 @@ extends CharacterBody2D
 
 const LINK = preload("uid://bbhu0e3rkslb7")
 
+@export_category("Editor Functions")
+@export_tool_button("Add Link") var add_link_action = _add_link
+@export_tool_button("Redraw") var redraw_action = redraw
+@export_tool_button("Clear Links") var clear_links_action = _clear_links
+
 @export_category("Components")
 @export var link_container: Node2D
 @export var collision_polygon_2d: CollisionPolygon2D
 @export var polygon_2d: Polygon2D
 @export var line_2d: Line2D
 
-@export_category("Editor Functions")
-@export_tool_button("Add Link") var add_link_action = _add_link
-@export_tool_button("Redraw") var redraw_action = redraw
-@export_tool_button("Clear Links") var clear_links_action = _clear_links
-
 @export_category("Parameters")
+@export var show_link_outlines: bool = true:
+	set(value):
+		show_link_outlines = value
+		redraw()
+@export var show_link_polygons: bool = true:
+	set(value):
+		show_link_polygons = value
+		redraw()
+@export var show_shape_points: bool = true:
+	set(value):
+		show_shape_points = value
+		redraw()
 @export_range(0.0, 100.0, 1.0) var link_distance: float = 20.0:
 	set(value):
 		link_distance = value
@@ -31,7 +43,7 @@ const LINK = preload("uid://bbhu0e3rkslb7")
 	set(value):
 		roundness_factor = value
 		redraw()
-@export var camera: Node2D
+@export var stick_to_head: Array[Node2D]
 
 @export_category("Movement Parameters")
 @export var speed: float = 600.0
@@ -49,14 +61,18 @@ var fish_velocity: Vector2 = Vector2.RIGHT * speed
 func _ready() -> void:
 	# Generation
 	link_container.child_order_changed.connect(_on_child_order_changed)
+	
+	# Connect update signal
 	for link: Link in link_container.get_children():
 		link.update.connect(redraw)
 	
-	# Add RemoteTransform2D node to head
-	if not Engine.is_editor_hint() and camera:
-		var head: Link = link_container.get_children().back()
+	# Add RemoteTransform2D nodes to head
+	if Engine.is_editor_hint():
+		return
+	var head: Link = link_container.get_children().back()
+	for node: Node2D in stick_to_head:
 		remote_transform_2d = RemoteTransform2D.new()
-		remote_transform_2d.remote_path = camera.get_path()
+		remote_transform_2d.remote_path = node.get_path()
 		head.add_child(remote_transform_2d)
 		remote_transform_2d.owner = self
 
@@ -104,6 +120,11 @@ func _physics_process(delta: float) -> void:
 	redraw()
 
 
+func _on_child_order_changed():
+	_update_links()
+	redraw()
+
+
 func place(new_position: Vector2, direction: Vector2 = Vector2.ZERO):
 	if direction.is_zero_approx():
 		direction = Vector2.from_angle(randf() * 2 * PI)
@@ -132,7 +153,9 @@ func _add_link():
 
 
 func _clear_links():
-	line_2d.points.clear()
+	collision_polygon_2d.polygon = []
+	polygon_2d.polygon = []
+	line_2d.points = []
 	for child in link_container.get_children():
 		child.free()
 
@@ -142,15 +165,11 @@ func redraw():
 		return
 	if link_container.get_children().is_empty():
 		return
-	for child: Link in link_container.get_children():
-		child.draw()
+	
+	for link: Link in link_container.get_children():
+		link.draw(show_link_polygons, show_link_outlines, show_shape_points)
 	var curve: Curve2D = _create_curve()
 	_visualize_curve(curve)
-
-
-func _on_child_order_changed():
-	_update_links()
-	redraw()
 
 
 func _update_links() -> void:
@@ -215,7 +234,7 @@ func _visualize_curve(curve: Curve2D):
 	line_2d.points = smooth_points
 	
 	var collision_points: Array[Vector2]
-	var collision_resolution = 8  # higher -> smoother
+	var collision_resolution = 8
 	for i in range(collision_resolution + 1):
 		collision_points.append(curve.sample_baked(float(i) / collision_resolution * length) * global_transform)
 	collision_polygon_2d.polygon = collision_points
@@ -227,3 +246,4 @@ func _add_bezier_point_to_curve(curve: Curve2D, link: Link, point: Vector2) -> V
 	var out_point: Vector2 = origin_to_point.rotated(PI / 2) * (link.radius * roundness_factor)
 	curve.add_point(point, in_point, out_point)
 	return point
+	

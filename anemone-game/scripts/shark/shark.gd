@@ -3,6 +3,7 @@ extends Node2D
 
 @export var acceleration: float
 @export var maxSpeed: float
+@export var killDistance: float = 1400
 
 @export var next_position_timer: Timer
 
@@ -12,7 +13,16 @@ var map_size: Vector2
 var target: Player
 var on_the_hunt: bool = true
 
+
 func _process(_delta):
+	# DIRTY check for collision with player
+	if fish:
+		var head_pos = fish.get_links().front().global_position
+		var distance_to_target = target.fish.global_position.distance_to(head_pos)
+		if distance_to_target < killDistance:
+			print("YOU GOT EATEN BY SHARK")
+			SignalBus.shark_bit.emit()
+	
 	if not on_the_hunt or not target:
 		return
 	if not target.is_hidden:
@@ -25,8 +35,10 @@ func _process(_delta):
 		next_position_timer.wait_time = 0
 		next_position_timer.start()
 
+
 func target_point(point: Vector2):
 	fish.target_position = point
+
 
 func _target_random_point_on_map():
 	fish.target_position = Vector2(randf_range(0.0, map_size.x), randf_range(0.0, map_size.y))

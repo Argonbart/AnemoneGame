@@ -18,10 +18,10 @@ limit_right = 5000
 limit_bottom = 5000
 limit_smoothed = true
 
-[node name="Fish" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_gmlin")]
+[node name="Fish" parent="." node_paths=PackedStringArray("stick_to_head") instance=ExtResource("3_gmlin")]
 link_distance = 50.0
 roundness_factor = 0.15
-camera = NodePath("../Camera2D")
+stick_to_head = [NodePath("../Camera2D")]
 
 [node name="TrashStack" type="Node2D" parent="."]
 position = Vector2(-80, 0)

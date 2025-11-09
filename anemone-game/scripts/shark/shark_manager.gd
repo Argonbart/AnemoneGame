@@ -1,11 +1,11 @@
 extends Node2D
 
 const SHARK = preload("uid://badvssrgels4l")
+var shark: Shark
 
  # FIXME adjust based on Scene Borders
 @export var map_size: Vector2 = Vector2(2500, 1000)
 
-@export var shark: Shark
 @export var player: Player
 @export var outside_path: Path2D
 
@@ -54,8 +54,8 @@ func _on_hunt_timer_timeout() -> void:
 	# FIXME despawn on reach of final destination instead of timer
 	# TIME after which shark actually is despawned!!!
 	_await_despawn = true
-	get_tree().create_timer(4.0).timeout.connect(shark.queue_free)
-		
+	get_tree().create_timer(5.0).timeout.connect(shark.queue_free)
+	
 	peace_timer.start()
 
 

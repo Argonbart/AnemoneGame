@@ -23,8 +23,8 @@ GameConfig="*res://scripts/game_state/game_config.gd"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=900
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/aspect="expand"
 
 [input]
@@ -41,6 +41,7 @@ toggle_shark_attack={
 2d_physics/layer_2="Trash"
 2d_physics/layer_3="TrashDropZone"
 2d_physics/layer_4="Anemones"
+2d_physics/layer_5="Shark"
 
 [rendering]
 

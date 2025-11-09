@@ -51,16 +51,6 @@ func _init() -> void:
 	shape_points.append(0.75)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	draw()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
 func get_shape_points() -> Array[Vector2]:
 	var dir_vector = Vector2.RIGHT
 	if next:
@@ -73,11 +63,14 @@ func get_shape_points() -> Array[Vector2]:
 	return shape_point_positions
 
 
-func draw() -> void:
+func draw(show_link_polygon: bool, show_link_outline: bool, show_shape_points: bool) -> void:
 	_calculate_points()
-	_draw_fill()
-	_draw_stroke()
-	_update_shape_points()
+	if show_link_polygon:
+		_draw_fill()
+	if show_link_outline:
+		_draw_stroke()
+	if show_shape_points:
+		_update_shape_points()
 
 
 func _calculate_points() -> void:

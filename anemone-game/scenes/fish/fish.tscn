@@ -9,6 +9,9 @@ link_container = NodePath("LinkContainer")
 collision_polygon_2d = NodePath("CollisionPolygon2D")
 polygon_2d = NodePath("Polygon2D")
 line_2d = NodePath("Line2D")
+show_link_outlines = null
+show_link_polygons = null
+show_shape_points = null
 
 [node name="LinkContainer" type="Node2D" parent="."]
 
