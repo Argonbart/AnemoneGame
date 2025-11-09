@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd8sdn2hssgda"]
+
+[ext_resource type="Script" uid="uid://cro18thu7le4q" path="res://scenes/coral/coral.gd" id="1_srgkd"]
+
+[node name="Coral" type="Sprite2D"]
+script = ExtResource("1_srgkd")

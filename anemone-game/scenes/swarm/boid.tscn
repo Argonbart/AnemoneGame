@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceq03o3kh2yd5"]
 
 [ext_resource type="Script" uid="uid://demfm7rgjmwqb" path="res://scripts/swarm/boid.gd" id="1_3wvxu"]
-[ext_resource type="Texture2D" uid="uid://0hik28w8xd85" path="res://assets/icon.svg" id="2_tbjv5"]
+[ext_resource type="Texture2D" uid="uid://dl4fk2jccaxxk" path="res://assets/small_fish.png" id="2_08omt"]
 
 [node name="Boid" type="Node2D"]
 script = ExtResource("1_3wvxu")
@@ -9,5 +9,4 @@ maxVelocity = 585.0
 maxAcceleration = 1650.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.606, 0.606)
-texture = ExtResource("2_tbjv5")
+texture = ExtResource("2_08omt")

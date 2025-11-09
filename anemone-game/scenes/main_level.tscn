@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2mv62pchwbh1"]
+[gd_scene load_steps=19 format=3 uid="uid://d2mv62pchwbh1"]
 
+[ext_resource type="PackedScene" uid="uid://bbsls5gq8yerp" path="res://scenes/background.tscn" id="1_5fr2l"]
 [ext_resource type="PackedScene" uid="uid://tj5ds5rxwv2e" path="res://scenes/ui/DebugHUD.tscn" id="1_6we3w"]
 [ext_resource type="PackedScene" uid="uid://cy3x4gwb6yjx4" path="res://scenes/player/player.tscn" id="1_v3uhd"]
 [ext_resource type="PackedScene" uid="uid://nyxajlm4bhya" path="res://scenes/trash/trash_spawner.tscn" id="2_ufxs0"]
+[ext_resource type="Shader" uid="uid://c5x3skmrvee7" path="res://assets/shaders/post_processing.gdshader" id="4_iqu8w"]
 [ext_resource type="Script" uid="uid://oelyqo3rf5e" path="res://scripts/shark/shark_manager.gd" id="4_qmak7"]
 [ext_resource type="PackedScene" uid="uid://beb3yvk4or5nw" path="res://scenes/trash/trash_drop_zone.tscn" id="5_8ra5a"]
 [ext_resource type="PackedScene" uid="uid://bj6awkohhvssi" path="res://scenes/cutscenes/cutscene_manager.tscn" id="6_bq26l"]
@@ -29,6 +31,12 @@ size = Vector2(10, 10000)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2c82"]
 size = Vector2(10, 10000)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fr2l"]
+shader = ExtResource("4_iqu8w")
+shader_parameter/amplitude = 10.0
+shader_parameter/speed = 0.8
+shader_parameter/frequency = 1.0
+
 [sub_resource type="Curve2D" id="Curve2D_qmak7"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -5349, -5065, 0, 0, 0, 0, 2085.6697, -3745.9338, 0, 0, 0, 0, 4537, 874, 0, 0, 0, 0, -304.87448, 3989.8132, 0, 0, 0, 0, -4110.0728, -824.66406)
@@ -41,6 +49,8 @@ point_count = 5
 
 [node name="Background" type="Sprite2D" parent="Gameplay"]
 texture = SubResource("GradientTexture2D_qmak7")
+
+[node name="Background2" parent="Gameplay" instance=ExtResource("1_5fr2l")]
 
 [node name="Player" parent="Gameplay" instance=ExtResource("1_v3uhd")]
 position = Vector2(1037, 769)
@@ -76,6 +86,15 @@ offset_top = 51.0
 offset_right = -1521.0
 offset_bottom = -849.0
 metadata/_edit_use_anchors_ = true
+
+[node name="PostProcessing" type="ColorRect" parent="Gameplay/CanvasLayer"]
+material = SubResource("ShaderMaterial_5fr2l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="SharkManager" type="Node2D" parent="Gameplay" node_paths=PackedStringArray("flock", "player", "outside_path", "peace_timer", "hunt_timer")]
 script = ExtResource("4_qmak7")
