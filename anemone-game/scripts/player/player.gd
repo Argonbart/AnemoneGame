@@ -51,7 +51,9 @@ func _on_collect_trash(trash: Trash):
 
 
 func _on_trash_dropped():
-	pass
+	for c in trash_stack.get_children():
+		c.queue_free()
+	amount_of_trash_collected = 0
 	#print('dropped ' + str(amount_of_trash_collected) + ' trash')
 	#amount_of_trash_collected = 0
 	#if current_trash != null:
