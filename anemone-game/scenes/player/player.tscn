@@ -1,24 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy3x4gwb6yjx4"]
+[gd_scene load_steps=3 format=3 uid="uid://cy3x4gwb6yjx4"]
 
 [ext_resource type="Script" uid="uid://dh3p83kqlqdgn" path="res://scripts/player/player.gd" id="1_8afob"]
-[ext_resource type="Texture2D" uid="uid://bhdtv2oxeg12i" path="res://assets/debug_nemo.png" id="2_dovo2"]
 [ext_resource type="PackedScene" uid="uid://bq0yvub2l8hq6" path="res://scenes/fish/fish.tscn" id="3_gmlin"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
-
-[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("fish")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("fish")]
 script = ExtResource("1_8afob")
 fish = NodePath("Fish")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.3940793
-scale = Vector2(1.0010856, 1.0010856)
-texture = ExtResource("2_dovo2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.3940793
-scale = Vector2(2.2477722, 2.2477722)
-shape = SubResource("CapsuleShape2D_dovo2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(550, 0)
@@ -27,8 +14,8 @@ limit_top = -100
 limit_right = 1900
 limit_bottom = 1200
 
-[node name="TrashPosition" type="Node2D" parent="."]
-position = Vector2(-154, 13)
-
 [node name="Fish" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_gmlin")]
 camera = NodePath("../Camera2D")
+
+[node name="TrashStack" type="Node2D" parent="."]
+position = Vector2(-154, 13)

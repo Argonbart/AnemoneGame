@@ -4,16 +4,18 @@ extends StaticBody2D
 
 @export_category("Components")
 @export var fish: Fish
+@export var trash_stacl: Node2D
 
-# Trash variables
-var trash_collected_scn = preload("res://scenes/trash/trash_collected.tscn")
-var current_trash: Node2D = null
-var amount_of_trash_collected := 0
+# Variables
+var amount_of_trash_collected: int = 0
+
+# Visibility in anemones
+var is_hidden = false
 
 
 func _ready() -> void:
-	SignalBus.trash_collected.connect(collect_trash)
-	SignalBus.trash_dropped.connect(drop_all_trash)
+	SignalBus.trash_collected.connect(_on_collect_trash)
+	SignalBus.trash_dropped.connect(_on_trash_dropped)
 
 
 func _physics_process(_delta: float) -> void:
@@ -21,17 +23,17 @@ func _physics_process(_delta: float) -> void:
 	fish.target_position = desired_pos
 
 
-func collect_trash():
+func _on_collect_trash():
 	print("TRASH COLLECTED")
-	amount_of_trash_collected = amount_of_trash_collected + 1
-	if current_trash == null:
-		var trash = trash_collected_scn.instantiate()
-		$TrashPosition.add_child(trash)
-		current_trash = trash
+	amount_of_trash_collected += 1
+	#if not current_trash:
+		#var trash = trash_collected_scn.instantiate()
+		#$TrashPosition.add_child(trash)
+		#current_trash = trash
 
 
-func drop_all_trash():
+func _on_trash_dropped():
 	print('dropped ' + str(amount_of_trash_collected) + ' trash')
 	amount_of_trash_collected = 0
-	if current_trash != null:
-		current_trash.queue_free()
+	#if current_trash != null:
+		#current_trash.queue_free()
