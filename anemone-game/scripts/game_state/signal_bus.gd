@@ -1,6 +1,6 @@
 extends Node
 
-signal trash_spawned()
+signal trash_spawned(has_replaced_decaying_trash: bool)
 signal trash_collected(trash: Trash)
 signal trash_dropped()
 signal trash_decayed()
@@ -10,6 +10,8 @@ signal anemone_exited()
 signal protection_gained()
 signal protection_lost()
 signal shark_bit()
+signal replace_decayed_trash()
+signal update_total_trash_in_game()
 
 
 func _ready() -> void:

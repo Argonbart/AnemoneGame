@@ -10,15 +10,21 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SignalBus.replace_decayed_trash.connect(on_replace_decayed_trash)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	cooldown -= delta
 	if cooldown <= 0:
-		cooldown += spawn_delay
-		spawn_trash()
+		if can_spawn():
+			spawn_trash()
+			SignalBus.trash_spawned.emit(false)
+			cooldown = spawn_delay
+
+
+func can_spawn() -> bool:
+	return !GameStateManager.is_map_too_full()
 
 
 func spawn_trash():
@@ -30,4 +36,8 @@ func spawn_trash():
 	var instance := trash_scene.instantiate() as Node2D
 	instance.global_position = spawn_position
 	add_child(instance)
-	
+
+
+func on_replace_decayed_trash():
+	spawn_trash()
+	SignalBus.trash_spawned.emit(true)
