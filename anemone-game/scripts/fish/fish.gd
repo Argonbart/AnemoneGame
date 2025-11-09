@@ -1,4 +1,5 @@
 @tool
+class_name Fish
 extends Node2D
 
 
@@ -10,7 +11,7 @@ const LINK = preload("uid://bbhu0e3rkslb7")
 
 @export_category("Editor Functions")
 @export_tool_button("Add Link") var add_link_action = _add_link
-@export_tool_button("Redraw") var redraw_action = _redraw
+@export_tool_button("Redraw") var redraw_action = redraw
 @export_tool_button("Clear Links") var clear_links_action = _clear_links
 
 @export_category("Parameters")
@@ -23,71 +24,42 @@ const LINK = preload("uid://bbhu0e3rkslb7")
 		for link: Link in link_container.get_children():
 			link.position = Vector2(link_distance * i, 0.0)
 			i += 1
-		_redraw()
+		redraw()
 @export_range(0.0, 2.0, 0.05) var roundness_factor: float = 1.0:
 	set(value):
 		roundness_factor = value
-		_redraw()
+		redraw()
+@export var camera: Node2D
 
-@export_category("Movement Parameters")
-@export var speed: float = 600.0
-@export var max_turn_deg_per_sec: float = 180.0
-
-# Movement variables
-var velocity: Vector2 = Vector2.RIGHT * speed
-var target_pos: Vector2
+# Variables
+var remote_transform_2d: RemoteTransform2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Movement
-	target_pos = get_global_mouse_position()
-	
 	# Generation
 	link_container.child_order_changed.connect(_on_child_order_changed)
 	for link: Link in link_container.get_children():
-		link.update.connect(_redraw)
+		link.update.connect(redraw)
+	
+	# Add RemoteTransform2D node to head
+	if camera:
+		var head: Link = link_container.get_children().back()
+		remote_transform_2d = RemoteTransform2D.new()
+		remote_transform_2d.remote_path = camera.get_path()
+		head.add_child(remote_transform_2d)
+		remote_transform_2d.owner = head
 
 
-func _physics_process(delta: float) -> void:
-	if Engine.is_editor_hint():
-		return
-	var head: Link = link_container.get_children().back()
-	
-	var desired_pos: Vector2 = get_global_mouse_position()
-	
-	# Smooth steering with limited angular speed
-	var to_target = desired_pos - head.global_position
-	if to_target.length_squared() < 0.0001:
-		head.global_position += velocity * delta
-		return
-	
-	var desired_angle = to_target.angle()
-	var current_angle = velocity.angle()
-	var angle_diff = wrapf(desired_angle - current_angle, -PI, PI)
-	var max_turn = deg_to_rad(max_turn_deg_per_sec) * delta
-	var clamped_turn = clamp(angle_diff, -max_turn, max_turn)
-	var new_angle = current_angle + clamped_turn
-	
-	velocity = Vector2.RIGHT.rotated(new_angle) * speed
-	head.look_at(head.global_position + velocity)
-	head.global_position += velocity * delta
-	
-	var tail: Array[Node] = link_container.get_children()
-	tail.reverse()
-	tail = tail.slice(1)
-	for link: Link in tail:
-		if link.global_position.distance_to(link.next.global_position) > link_distance:
-			var reversed_direction = link.global_position - link.next.global_position
-			var new_pos = link.next.global_position + reversed_direction.normalized() * link_distance
-			link.global_position = new_pos
-	
-	_redraw()
+func get_links() -> Array[Node]:
+	var links = link_container.get_children()
+	links.reverse()
+	return links
 
 
 func _add_link():
 	var new_link: Link = LINK.instantiate()
-	new_link.update.connect(_redraw)
+	new_link.update.connect(redraw)
 	link_container.add_child(new_link)
 	new_link.owner = self
 
@@ -98,7 +70,7 @@ func _clear_links():
 		child.free()
 
 
-func _redraw():
+func redraw():
 	if not link_container:
 		return
 	if link_container.get_children().is_empty():
@@ -111,7 +83,7 @@ func _redraw():
 
 func _on_child_order_changed():
 	_update_links()
-	_redraw()
+	redraw()
 
 
 func _update_links() -> void:
@@ -171,7 +143,7 @@ func _visualize_curve(curve: Curve2D):
 	var resolution = 256  # higher -> smoother
 	var length = curve.get_baked_length()
 	for i in range(resolution + 1):
-		smooth_points.append(curve.sample_baked(float(i) / resolution * length))
+		smooth_points.append(curve.sample_baked(float(i) / resolution * length) * global_transform)
 	line_2d.points = smooth_points
 
 

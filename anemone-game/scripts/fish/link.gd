@@ -94,7 +94,7 @@ func _update_shape_points() -> void:
 	for point: float in shape_points:
 		var angle = remap(point, 0.0, 1.0, 0.0, 2 * PI)
 		var point_viz: ShapePoint = ShapePoint.new()
-		point_viz.position = Vector2(radius * cos(angle), radius * sin(angle))
+		point_viz.global_position = Vector2(radius * cos(angle), radius * sin(angle))
 		shape_point_container.add_child(point_viz)
 		point_viz.owner = self
 
